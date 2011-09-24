@@ -1,8 +1,8 @@
 # Build and Release Folders
-bin/
-build/ane/
-cert/
-ant/
+**/bin/
+**/build/ane/
+**/cert/
+**/ant/
 
 # OS X folders
 .DS_Store
