@@ -33,6 +33,7 @@ After adding the.swc file to your project path you've access to the containing c
 In case you want to check whether a service is available or not you should use the static method isSupported before initializing the instance.
 
 E.g.
+
 	if (VibratorService.isSupported())
 	{
 		var service : VibratorService = new VibratorService();
@@ -44,6 +45,7 @@ E.g.
 Make sure you've added the .ane files during the packaging process of your .apk file.
 
 E.g. via ANT
+
 	<arg value="-extdir" />
 	<arg value="/ane-dir" />
 
