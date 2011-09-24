@@ -59,6 +59,8 @@ Change log
 
 Roadmap
 -------
+- Add additional Documentation of each service
+
 - Add Unit Tests
 - Add more functionality to the Vibrator Service (cancel, repeat)
 - Add additional sensor support
