@@ -1,0 +1,13 @@
+<extension xmlns="http://ns.adobe.com/air/extension/2.5">
+  <id>de.patrickkulling.air.mobile.extensions.ambientlight</id>
+  <versionNumber>1</versionNumber>
+  <platforms>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>ambientlight.jar</nativeLibrary>
+        <initializer>de.patrickkulling.air.mobile.extensions.ambientlight.AmbientLightExtension</initializer>
+        <finalizer>de.patrickkulling.air.mobile.extensions.ambientlight.AmbientLightExtension</finalizer>
+      </applicationDeployment>
+    </platform>
+  </platforms>
+</extension>
