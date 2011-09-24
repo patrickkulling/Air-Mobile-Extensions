@@ -25,6 +25,7 @@ Download the prefered Extension from the **Extension_Android _*_Interface** dire
 * Copy the '.swc' file from the /build folder into your library folder and add it to your project classpath.
 * Copy the '.ane' file from the /build folder into your project folder 
 * Add the content of the 'descriptor_extensions.xml' into your application-descriptor.xml file
+* Add all necessary permissions into your application-descriptor.xml file
 
 **Usage**
 
