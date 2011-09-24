@@ -18,7 +18,7 @@ Usage
 
 **Download**
 
-Download the prefered Extension from the Extension_Android_*_Interface directory of the extension. I've also added the source files from native code in case you want to change the implementation for yourself.
+Download the prefered Extension from the **Extension_Android _*_Interface** directory of the extension. I've also added the source files from native code in case you want to change the implementation for yourself.
 
 **Installation**
 
@@ -30,7 +30,7 @@ Download the prefered Extension from the Extension_Android_*_Interface directory
 
 After adding the.swc file to your project path you've access to the containing classes. The implementation of the different services is straight forwarded and orients oneself by the Adobe AIR API of the Geolocation and Accelerometer class.
 
-In case you want to check whether a service is available or not you should use the static method isSupported before initializing the instance.
+In case you want to check whether a service is available or not you should use the static method isSupported() before initializing the instance.
 
 E.g.
 
