@@ -59,20 +59,20 @@ package de.patrickkulling.air.mobile.extensions.proximity
 
 		public static function isSupported() : Boolean
 		{
-			var isProximitySupported : Boolean = false;
+			var isOrientationSupported : Boolean = false;
 
 			var localContext : ExtensionContext = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
 			if (localContext != null)
 			{
 				localContext.call("initialize");
-				isProximitySupported = localContext.call("isSupported") as Boolean;
+				isOrientationSupported = localContext.call("isSupported") as Boolean;
 
 				localContext.dispose();
 				localContext = null;
 			}
 
-			return isProximitySupported;
+			return isOrientationSupported;
 		}
 
 		public function setRequestedUpdateInterval(interval : Number) : void

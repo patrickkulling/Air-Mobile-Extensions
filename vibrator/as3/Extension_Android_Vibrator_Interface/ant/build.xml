@@ -4,8 +4,8 @@
          basedir="../"
          default="00. [build extension]">
 
-	<property name="res.source.dir"
-	          value="/Users/patrick/workspaces/github/Air Mobile Extensions/vibrator/native_android/Extension_Android_Vibrator/res/" />
+	<property name="native.dir"
+	          value="/Users/patrick/workspaces/github/Air Mobile Extensions/vibrator/native_android/Extension_Android_Vibrator" />
 
 	<property name="swc.name" value="android_vibrator_extension.swc" />
 
@@ -19,11 +19,11 @@
 		<mkdir dir="build/ane/Android-ARM/res" />
 
 		<copy todir="build/ane/Android-ARM/res">
-			<fileset dir="${res.source.dir}" />
+			<fileset dir="${native.dir}/res" />
 		</copy>
 
 		<jar destfile="build/ane/Android-ARM/vibrator.jar"
-		     basedir="${res.source.dir}" />
+		     basedir="${native.dir}/bin" />
 
 		<copy todir="build/ane/">
 			<fileset file="./src/extension.xml" />
@@ -74,7 +74,6 @@
 		<copy todir="../../extension/" file="./build/ane/${swc.name}" />
 
 		<delete dir="build" />
-
 	</target>
 
 </project>

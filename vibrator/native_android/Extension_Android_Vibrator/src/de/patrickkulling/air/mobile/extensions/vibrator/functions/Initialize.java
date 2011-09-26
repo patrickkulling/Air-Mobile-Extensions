@@ -42,7 +42,7 @@ public class Initialize implements FREFunction
 		Activity activity = vibratorContext.getActivity();
 
 		vibratorContext.vibrator = (Vibrator)activity.getSystemService(Context.VIBRATOR_SERVICE);
-
+		
 		return null;
 	}
 }

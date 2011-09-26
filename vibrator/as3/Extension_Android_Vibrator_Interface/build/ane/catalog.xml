@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.5.1" build="21328" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="_13e8baee2153ca65a3c01e836405d54804fecaa235d5c9a43da4f963ef6c66b6_flash_display_Sprite" mod="1317046340485" signatureChecksum="4244273979" >
+        <def id="_13e8baee2153ca65a3c01e836405d54804fecaa235d5c9a43da4f963ef6c66b6_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="de/patrickkulling/air/mobile/extensions/vibrator/Vibrator" mod="1317045333000" signatureChecksum="4209134005" >
+        <def id="de.patrickkulling.air.mobile.extensions.vibrator:Vibrator" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="f43fea0d86c09588ad0f02cf21fbc769ece412fcd4d2fcec7aa3fdc0f98472b1"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

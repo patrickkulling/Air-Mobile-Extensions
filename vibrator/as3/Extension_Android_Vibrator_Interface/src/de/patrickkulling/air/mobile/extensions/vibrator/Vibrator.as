@@ -43,6 +43,7 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 			if (localContext != null)
 			{
 				localContext.call("initialize");
+				
 				isVibratorSupported = localContext.call("isSupported") as Boolean;
 
 				localContext.dispose();
