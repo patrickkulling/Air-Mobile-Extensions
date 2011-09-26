@@ -62,6 +62,14 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 			context.call("vibrate", duration);
 		}
 
+		public function cancel() : void
+		{
+			if (context == null)
+				return;
+
+			context.call("cancel");
+		}
+
 		public function dispose() : void
 		{
 			if (context == null)

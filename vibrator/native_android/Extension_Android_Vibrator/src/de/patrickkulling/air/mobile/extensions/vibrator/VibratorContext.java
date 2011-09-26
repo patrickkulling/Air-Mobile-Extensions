@@ -29,6 +29,7 @@ import android.os.Vibrator;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 
+import de.patrickkulling.air.mobile.extensions.vibrator.functions.Cancel;
 import de.patrickkulling.air.mobile.extensions.vibrator.functions.Initialize;
 import de.patrickkulling.air.mobile.extensions.vibrator.functions.IsSupported;
 import de.patrickkulling.air.mobile.extensions.vibrator.functions.Vibrate;
@@ -54,6 +55,7 @@ public class VibratorContext extends FREContext
 
 		availableFunctions.put("isSupported", new IsSupported());
 		availableFunctions.put("vibrate", new Vibrate());
+		availableFunctions.put("cancel", new Cancel());
 		
 		return availableFunctions;
 	}

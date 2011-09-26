@@ -36,15 +36,15 @@ public class Vibrate implements FREFunction
 {
 	public FREObject call(FREContext context, FREObject[] params)
 	{
-		int milliseconds = getMilliseconds(params);
+		int duration = getMilliseconds(params);
 
-		if (milliseconds != -1)
+		if (duration != -1)
 		{
 			VibratorContext vibratorContext = (VibratorContext)context;
 			Vibrator vibrator = vibratorContext.vibrator;
 
 			if(vibrator != null)
-				vibrator.vibrate(milliseconds);
+				vibrator.vibrate(duration);
 		}
 
 		return null;
