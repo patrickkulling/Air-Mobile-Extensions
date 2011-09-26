@@ -53,6 +53,10 @@ E.g. via ANT
 
 Change log
 ----------
+
+* **[Fix]** Now each Sensor can be initiated multiple times, e.g. to use different intervals to retrieved sensor updates
+* **[Modified]** Renamed all *Service classes into *, e.g. ProximityService > Proximity
+
 * **[Added]** Ambient Light Service
 * **[Added]** Orientation Service
 * **[Added]** Proximity Service
@@ -65,7 +69,3 @@ Roadmap
 - Add Unit Tests
 - Add more functionality to the Vibrator Service (cancel, repeat)
 - Add additional sensor support
-
-Bugs/Todo
--------
-- Fix an issue, when one service is created more than once
