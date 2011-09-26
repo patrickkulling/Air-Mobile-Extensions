@@ -31,7 +31,8 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 
 		public function Vibrator()
 		{
-			initContext();
+			if (context == null)
+				initContext();
 		}
 
 		public static function isSupported() : Boolean
@@ -43,7 +44,7 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 			if (localContext != null)
 			{
 				localContext.call("initialize");
-				
+
 				isVibratorSupported = localContext.call("isSupported") as Boolean;
 
 				localContext.dispose();
@@ -59,6 +60,15 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 				initContext();
 
 			context.call("vibrate", duration);
+		}
+
+		public function dispose() : void
+		{
+			if (context == null)
+				return;
+			
+			context.dispose();
+			context = null;
 		}
 
 		private static function initContext() : void
