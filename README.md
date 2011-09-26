@@ -64,10 +64,20 @@ E.g. via ANT
 
 Change log
 ----------
+**v 0.4**
+
+* **[Added]** getMaximumRange(), getPower() and getResolution() implementation for the Proximity, Orientation and AmbientLight sensors
+
+**v 0.3**
+
 * **[Modified]** Project structure
+
+**v 0.2**
 
 * **[Fix]** Now each Sensor can be initiated multiple times, e.g. to use different intervals to retrieved sensor updates
 * **[Modified]** Renamed all *Service classes into *, e.g. ProximityService > Proximity
+
+**v 0.1**
 
 * **[Added]** Ambient Light Service
 * **[Added]** Orientation Service
