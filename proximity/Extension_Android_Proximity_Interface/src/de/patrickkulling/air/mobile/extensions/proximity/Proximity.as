@@ -19,46 +19,60 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.patrickkulling.air.mobile.extensions.ambientlight
+package de.patrickkulling.air.mobile.extensions.proximity
 {
-	import de.patrickkulling.air.mobile.extensions.ambientlight.event.AmbientLightEvent;
-	import de.patrickkulling.air.mobile.extensions.ambientlight.event.AmbientLightStatus;
+	import de.patrickkulling.air.mobile.extensions.proximity.event.ProximityEvent;
+	import de.patrickkulling.air.mobile.extensions.proximity.event.ProximityStatus;
+
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
 	import flash.events.TimerEvent;
 	import flash.external.ExtensionContext;
 	import flash.utils.Timer;
 
-
-	[Event(name="AmbientLightEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.ambientlight.event.AmbientLightEvent")]
-	public class AmbientLightService extends EventDispatcher
+	[Event(name="ProximityEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.proximity.event.ProximityEvent")]
+	public class Proximity extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.ambientlight";
+		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.proximity";
 
 		private static var context : ExtensionContext;
-
+		private static var referenceCount : int = 0;
+		
+		private static var _distance : Number = 0;
+		private static var _accuracy : Number = 0;
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
 
-		private var _lightLevel : Number = 0;
-		private var _accuracy : Number = 0;
 
-		public function AmbientLightService()
+		public function Proximity()
 		{
 			if (context == null)
 				initContext();
 
-			context.addEventListener(StatusEvent.STATUS, handleAmbientLightStatus);
+			if (context.hasEventListener(StatusEvent.STATUS) == false)
+				context.addEventListener(StatusEvent.STATUS, handleProximityStatus);
 
 			createIntervalTimer();
+
+			referenceCount++;
 		}
 
 		public static function isSupported() : Boolean
 		{
-			if (context == null)
-				initContext();
+			var isProximitySupported : Boolean = false;
 
-			return context.call("isSupported") as Boolean;
+			var localContext : ExtensionContext = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
+
+			if (localContext != null)
+			{
+				localContext.call("initialize");
+				isProximitySupported = localContext.call("isSupported") as Boolean;
+
+				localContext.dispose();
+				localContext = null;
+			}
+
+			return isProximitySupported;
 		}
 
 		public function setRequestedUpdateInterval(interval : Number) : void
@@ -75,10 +89,20 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 			if (context == null)
 				return;
 
-			context.call("stopAmbientLight");
-			context.removeEventListener(StatusEvent.STATUS, handleAmbientLightStatus);
-			context.dispose();
-			context = null;
+			disposeIntervalTimer();
+
+			referenceCount--;
+
+			if (referenceCount < 0)
+				referenceCount = 0;
+
+			if (referenceCount == 0)
+			{
+				context.removeEventListener(StatusEvent.STATUS, handleProximityStatus);
+				context.call("stopProximity");
+				context.dispose();
+				context = null;
+			}
 		}
 
 		private static function initContext() : void
@@ -86,7 +110,7 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
 			context.call("initialize");
-			context.call("startAmbientLight");
+			context.call("startProximity");
 		}
 
 		private function disposeIntervalTimer() : void
@@ -109,19 +133,19 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 		private function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
-				dispatchEvent(new AmbientLightEvent(AmbientLightEvent.UPDATE, _lightLevel, _accuracy));
+				dispatchEvent(new ProximityEvent(ProximityEvent.UPDATE, _distance, _accuracy));
 		}
 
-		private function handleAmbientLightStatus(event : StatusEvent) : void
+		private function handleProximityStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{
-				case AmbientLightStatus.ACCURACY_CHANGE:
+				case ProximityStatus.ACCURACY_CHANGE:
 					_accuracy = parseInt(event.level);
 
 					break;
-				case AmbientLightStatus.SENSOR_CHANGE:
-					_lightLevel = parseFloat(event.level);
+				case ProximityStatus.SENSOR_CHANGE:
+					_distance = parseFloat(event.level);
 
 					break;
 

@@ -33,36 +33,50 @@ package de.patrickkulling.air.mobile.extensions.orientation
 	import flash.external.ExtensionContext;
 
 	[Event(name="OrientationEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.orientation.event.OrientationEvent")]
-	public class OrientationService extends EventDispatcher
+	public class Orientation extends EventDispatcher
 	{
 		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.orientation";
 
 		private static var context : ExtensionContext;
+		private static var referenceCount : int = 0;
+
+		private static var _azimuth : Number = 0;
+		private static var _pitch : Number = 0;
+		private static var _roll : Number = 0;
+		private static var _accuracy : Number = 0;
 
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
-
-		private var _azimuth : Number = 0;
-		private var _pitch : Number = 0;
-		private var _roll : Number = 0;
-		private var _accuracy : Number = 0;
-
-		public function OrientationService()
+		
+		public function Orientation()
 		{
 			if (context == null)
 				initContext();
 
-			context.addEventListener(StatusEvent.STATUS, handleOrientationStatus);
+			if (context.hasEventListener(StatusEvent.STATUS) == false)
+				context.addEventListener(StatusEvent.STATUS, handleOrientationStatus);
 
 			createIntervalTimer();
+
+			referenceCount++;
 		}
 
 		public static function isSupported() : Boolean
 		{
-			if (context == null)
-				initContext();
+			var isOrientationSupported : Boolean = false;
 
-			return context.call("isSupported") as Boolean;
+			var localContext : ExtensionContext = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
+
+			if (localContext != null)
+			{
+				localContext.call("initialize");
+				isOrientationSupported = localContext.call("isSupported") as Boolean;
+
+				localContext.dispose();
+				localContext = null;
+			}
+
+			return isOrientationSupported;
 		}
 
 		public function setRequestedUpdateInterval(interval : Number) : void
@@ -79,10 +93,20 @@ package de.patrickkulling.air.mobile.extensions.orientation
 			if (context == null)
 				return;
 
-			context.call("stopOrientation");
-			context.removeEventListener(StatusEvent.STATUS, handleOrientationStatus);
-			context.dispose();
-			context = null;
+			disposeIntervalTimer();
+
+			referenceCount--;
+
+			if (referenceCount < 0)
+				referenceCount = 0;
+
+			if (referenceCount == 0)
+			{
+				context.removeEventListener(StatusEvent.STATUS, handleOrientationStatus);
+				context.call("stopOrientation");
+				context.dispose();
+				context = null;
+			}
 		}
 
 		private static function initContext() : void

@@ -23,30 +23,40 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 {
 	import flash.external.ExtensionContext;
 
-	public class VibratorService
+	public class Vibrator
 	{
 		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.vibrator";
 
 		private static var context : ExtensionContext;
 
-		public function VibratorService()
+		public function Vibrator()
 		{
 			initContext();
 		}
 
 		public static function isSupported() : Boolean
 		{
-			if (context == null)
-				initContext();
+			var isVibratorSupported : Boolean = false;
 
-			return context.call("isSupported") as Boolean;;
+			var localContext : ExtensionContext = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
+
+			if (localContext != null)
+			{
+				localContext.call("initialize");
+				isVibratorSupported = localContext.call("isSupported") as Boolean;
+
+				localContext.dispose();
+				localContext = null;
+			}
+
+			return isVibratorSupported;
 		}
 
 		public function vibrate(duration : int) : void
 		{
 			if (context == null)
 				initContext();
-				
+
 			context.call("vibrate", duration);
 		}
 
