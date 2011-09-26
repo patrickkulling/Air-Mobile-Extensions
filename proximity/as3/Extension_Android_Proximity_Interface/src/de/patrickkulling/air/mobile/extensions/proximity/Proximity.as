@@ -37,12 +37,11 @@ package de.patrickkulling.air.mobile.extensions.proximity
 
 		private static var context : ExtensionContext;
 		private static var referenceCount : int = 0;
-		
+
 		private static var _distance : Number = 0;
 		private static var _accuracy : Number = 0;
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
-
 
 		public function Proximity()
 		{
@@ -82,6 +81,30 @@ package de.patrickkulling.air.mobile.extensions.proximity
 			disposeIntervalTimer();
 
 			createIntervalTimer();
+		}
+		
+		public function getMaximumRange() : Number
+		{
+			if(context == null)
+				return -1;
+				
+			return context.call("getMaximumRange") as Number;
+		}
+
+		public function getPower() : Number
+		{
+			if(context == null)
+				return -1;
+				
+			return context.call("getPower") as Number;
+		}
+
+		public function getResolution() : Number
+		{
+			if(context == null)
+				return -1;
+				
+			return context.call("getResolution") as Number;
 		}
 
 		public function dispose() : void

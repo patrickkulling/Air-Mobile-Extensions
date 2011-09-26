@@ -87,6 +87,30 @@ package de.patrickkulling.air.mobile.extensions.orientation
 
 			createIntervalTimer();
 		}
+		
+		public function getMaximumRange() : Number
+		{
+			if(context == null)
+				return -1;
+				
+			return context.call("getMaximumRange") as Number;
+		}
+
+		public function getPower() : Number
+		{
+			if(context == null)
+				return -1;
+				
+			return context.call("getPower") as Number;
+		}
+
+		public function getResolution() : Number
+		{
+			if(context == null)
+				return -1;
+				
+			return context.call("getResolution") as Number;
+		}
 
 		public function dispose() : void
 		{

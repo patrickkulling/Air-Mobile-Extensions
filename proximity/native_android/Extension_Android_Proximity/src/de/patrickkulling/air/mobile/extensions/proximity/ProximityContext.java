@@ -30,6 +30,9 @@ import android.hardware.SensorManager;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 
+import de.patrickkulling.air.mobile.extensions.proximity.functions.GetMaximumRange;
+import de.patrickkulling.air.mobile.extensions.proximity.functions.GetPower;
+import de.patrickkulling.air.mobile.extensions.proximity.functions.GetResolution;
 import de.patrickkulling.air.mobile.extensions.proximity.functions.Initialize;
 import de.patrickkulling.air.mobile.extensions.proximity.functions.IsSupported;
 import de.patrickkulling.air.mobile.extensions.proximity.functions.StartProximity;
@@ -60,6 +63,10 @@ public class ProximityContext extends FREContext
 		availableFunctions.put("isSupported", new IsSupported());
 		availableFunctions.put("startProximity", new StartProximity());
 		availableFunctions.put("stopProximity", new StopProximity());
+		
+		availableFunctions.put("getMaximumRange", new GetMaximumRange());
+		availableFunctions.put("getPower", new GetPower());
+		availableFunctions.put("getResolution", new GetResolution());
 		
 		return availableFunctions;
 	}

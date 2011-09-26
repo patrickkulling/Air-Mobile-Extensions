@@ -30,6 +30,9 @@ import android.hardware.SensorManager;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 
+import de.patrickkulling.air.mobile.extensions.ambientlight.functions.GetMaximumRange;
+import de.patrickkulling.air.mobile.extensions.ambientlight.functions.GetPower;
+import de.patrickkulling.air.mobile.extensions.ambientlight.functions.GetResolution;
 import de.patrickkulling.air.mobile.extensions.ambientlight.functions.Initialize;
 import de.patrickkulling.air.mobile.extensions.ambientlight.functions.IsSupported;
 import de.patrickkulling.air.mobile.extensions.ambientlight.functions.StartAmbientLight;
@@ -60,6 +63,10 @@ public class AmbientLightContext extends FREContext
 		availableFunctions.put("isSupported", new IsSupported());
 		availableFunctions.put("startAmbientLight", new StartAmbientLight());
 		availableFunctions.put("stopAmbientLight", new StopAmbientLight());
+
+		availableFunctions.put("getMaximumRange", new GetMaximumRange());
+		availableFunctions.put("getPower", new GetPower());
+		availableFunctions.put("getResolution", new GetResolution());
 		
 		return availableFunctions;
 	}

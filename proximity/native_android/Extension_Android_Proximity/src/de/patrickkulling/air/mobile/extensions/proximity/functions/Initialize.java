@@ -43,7 +43,7 @@ public class Initialize implements FREFunction
 		proximityContext.sensorManager = sensorManager;
 		proximityContext.proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 		proximityContext.proximityListener = new ProximityListener((ProximityContext) context);
-
+		
 		return null;
 	}
 }

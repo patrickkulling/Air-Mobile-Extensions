@@ -30,6 +30,9 @@ import android.hardware.SensorManager;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 
+import de.patrickkulling.air.mobile.extensions.orientation.functions.GetMaximumRange;
+import de.patrickkulling.air.mobile.extensions.orientation.functions.GetPower;
+import de.patrickkulling.air.mobile.extensions.orientation.functions.GetResolution;
 import de.patrickkulling.air.mobile.extensions.orientation.functions.Initialize;
 import de.patrickkulling.air.mobile.extensions.orientation.functions.IsSupported;
 import de.patrickkulling.air.mobile.extensions.orientation.functions.StartOrientation;
@@ -60,6 +63,11 @@ public class OrientationContext extends FREContext
 		availableFunctions.put("isSupported", new IsSupported());
 		availableFunctions.put("startOrientation", new StartOrientation());
 		availableFunctions.put("stopOrientation", new StopOrientation());
+		
+		availableFunctions.put("getMaximumRange", new GetMaximumRange());
+		availableFunctions.put("getPower", new GetPower());
+		availableFunctions.put("getResolution", new GetResolution());
+		
 		
 		return availableFunctions;
 	}

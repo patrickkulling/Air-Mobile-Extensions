@@ -57,7 +57,7 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 		public function vibrate(duration : int) : void
 		{
 			if (context == null)
-				initContext();
+				return;
 
 			context.call("vibrate", duration);
 		}
