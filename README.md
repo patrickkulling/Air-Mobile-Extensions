@@ -27,7 +27,7 @@ Download the prefered Extension from the **Extension_Android _*_Interface** dire
 * Add the content of the 'descriptor_extensions.xml' into your application-descriptor.xml file
 * Add all necessary permissions into your application-descriptor.xml file
 
-**Usage**
+**API Usage**
 
 After adding the.swc file to your project path you've access to the containing classes. The implementation of the different services is straight forwarded and orients oneself by the Adobe AIR API of the Geolocation and Accelerometer class.
 
@@ -35,11 +35,22 @@ In case you want to check whether a service is available or not you should use t
 
 E.g.
 
-	if (VibratorService.isSupported())
+	if (Vibrator.isSupported())
 	{
-		var service : VibratorService = new VibratorService();
-		service.vibrate(200);
+		var vibrator : Vibrator = new Vibrator();
+		vibrator.vibrate(200);
 	}
+	
+	if (Proximity.isSupported())
+	{
+		proximity = new Proximity();
+		proximity.setRequestedUpdateInterval(1000);
+		proximity.addEventListener(ProximityEvent.UPDATE, handleProximityUpdate);
+	}
+	
+You can dispose all Services via:
+
+	proximity.dispose();
 
 **Packaging**
 
