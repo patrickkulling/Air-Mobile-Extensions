@@ -64,6 +64,10 @@ E.g. via ANT
 
 Change log
 ----------
+**v 0.5**
+
+* **[Added]** Gyroscope Sensor
+
 **v 0.4**
 
 * **[Added]** getMaximumRange(), getPower() and getResolution() implementation for the Proximity, Orientation and AmbientLight sensors
