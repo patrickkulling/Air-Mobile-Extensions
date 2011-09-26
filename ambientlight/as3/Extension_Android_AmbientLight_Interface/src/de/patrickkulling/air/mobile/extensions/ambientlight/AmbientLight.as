@@ -39,8 +39,8 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 		private static var context : ExtensionContext;
 		private static var referenceCount : int = 0;
 
-		private static var _lightLevel : Number = 0;
-		private static var _accuracy : Number = 0;
+		private static var accuracy : Number = 0;
+		private static var lightLevel : Number = 0;
 		
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
@@ -158,7 +158,7 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 		private function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
-				dispatchEvent(new AmbientLightEvent(AmbientLightEvent.UPDATE, _lightLevel, _accuracy));
+				dispatchEvent(new AmbientLightEvent(AmbientLightEvent.UPDATE, lightLevel, accuracy));
 		}
 
 		private function handleAmbientLightStatus(event : StatusEvent) : void
@@ -166,11 +166,11 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 			switch(event.code)
 			{
 				case AmbientLightStatus.ACCURACY_CHANGE:
-					_accuracy = parseInt(event.level);
+					accuracy = parseInt(event.level);
 
 					break;
 				case AmbientLightStatus.SENSOR_CHANGE:
-					_lightLevel = parseFloat(event.level);
+					lightLevel = parseFloat(event.level);
 
 					break;
 

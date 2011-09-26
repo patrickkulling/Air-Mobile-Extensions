@@ -40,10 +40,10 @@ package de.patrickkulling.air.mobile.extensions.orientation
 		private static var context : ExtensionContext;
 		private static var referenceCount : int = 0;
 
-		private static var _azimuth : Number = 0;
-		private static var _pitch : Number = 0;
-		private static var _roll : Number = 0;
-		private static var _accuracy : Number = 0;
+		private static var azimuth : Number = 0;
+		private static var pitch : Number = 0;
+		private static var roll : Number = 0;
+		private static var accuracy : Number = 0;
 
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
@@ -161,7 +161,7 @@ package de.patrickkulling.air.mobile.extensions.orientation
 		private function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
-				dispatchEvent(new OrientationEvent(OrientationEvent.UPDATE, _azimuth, _pitch, _roll, _accuracy));
+				dispatchEvent(new OrientationEvent(OrientationEvent.UPDATE, azimuth, pitch, roll, accuracy));
 		}
 
 		private function handleOrientationStatus(event : StatusEvent) : void
@@ -169,15 +169,15 @@ package de.patrickkulling.air.mobile.extensions.orientation
 			switch(event.code)
 			{
 				case OrientationStatus.ACCURACY_CHANGE:
-					_accuracy = parseInt(event.level);
+					accuracy = parseInt(event.level);
 
 					break;
 				case OrientationStatus.SENSOR_CHANGE:
 					var values : Array = event.level.split("&");
 
-					_azimuth = Number(values[0]);
-					_pitch = Number(values[1]);
-					_roll = Number(values[2]);
+					azimuth = Number(values[0]);
+					pitch = Number(values[1]);
+					roll = Number(values[2]);
 
 					break;
 

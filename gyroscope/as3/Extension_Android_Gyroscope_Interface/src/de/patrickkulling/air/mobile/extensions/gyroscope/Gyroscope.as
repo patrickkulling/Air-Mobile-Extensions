@@ -19,38 +19,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.patrickkulling.air.mobile.extensions.proximity
+package de.patrickkulling.air.mobile.extensions.gyroscope
 {
-	import de.patrickkulling.air.mobile.extensions.proximity.event.ProximityEvent;
-	import de.patrickkulling.air.mobile.extensions.proximity.event.ProximityStatus;
-
+	import de.patrickkulling.air.mobile.extensions.gyroscope.event.GyroscopeEvent;
+	import de.patrickkulling.air.mobile.extensions.gyroscope.event.GyroscopeStatus;
 	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
 	import flash.events.TimerEvent;
 	import flash.external.ExtensionContext;
 	import flash.utils.Timer;
 
-	[Event(name="ProximityEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.proximity.event.ProximityEvent")]
-	public class Proximity extends EventDispatcher
+	[Event(name="GyroscopeEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.gyroscope.event.GyroscopeEvent")]
+	public class Gyroscope extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.proximity";
+		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.gyroscope";
 
 		private static var context : ExtensionContext;
 		private static var referenceCount : int = 0;
 
 		private static var accuracy : Number = 0;
-		private static var distance : Number = 0;
+		private static var x : Number = 0;
+		private static var y : Number = 0;
+		private static var z : Number = 0;
 		
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
 
-		public function Proximity()
+		public function Gyroscope()
 		{
 			if (context == null)
 				initContext();
 
 			if (context.hasEventListener(StatusEvent.STATUS) == false)
-				context.addEventListener(StatusEvent.STATUS, handleProximityStatus);
+				context.addEventListener(StatusEvent.STATUS, handleGyroscopeStatus);
 
 			createIntervalTimer();
 
@@ -59,20 +60,20 @@ package de.patrickkulling.air.mobile.extensions.proximity
 
 		public static function isSupported() : Boolean
 		{
-			var isOrientationSupported : Boolean = false;
+			var isGyroscopeSupported : Boolean = false;
 
 			var localContext : ExtensionContext = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
 			if (localContext != null)
 			{
 				localContext.call("initialize");
-				isOrientationSupported = localContext.call("isSupported") as Boolean;
+				isGyroscopeSupported = localContext.call("isSupported") as Boolean;
 
 				localContext.dispose();
 				localContext = null;
 			}
 
-			return isOrientationSupported;
+			return isGyroscopeSupported;
 		}
 
 		public function setRequestedUpdateInterval(interval : Number) : void
@@ -122,8 +123,8 @@ package de.patrickkulling.air.mobile.extensions.proximity
 
 			if (referenceCount == 0)
 			{
-				context.removeEventListener(StatusEvent.STATUS, handleProximityStatus);
-				context.call("stopProximity");
+				context.removeEventListener(StatusEvent.STATUS, handleGyroscopeStatus);
+				context.call("stopGyroscope");
 				context.dispose();
 				context = null;
 			}
@@ -134,7 +135,7 @@ package de.patrickkulling.air.mobile.extensions.proximity
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
 			context.call("initialize");
-			context.call("startProximity");
+			context.call("startGyroscope");
 		}
 
 		private function disposeIntervalTimer() : void
@@ -157,20 +158,24 @@ package de.patrickkulling.air.mobile.extensions.proximity
 		private function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
-				dispatchEvent(new ProximityEvent(ProximityEvent.UPDATE, distance, accuracy));
+				dispatchEvent(new GyroscopeEvent(GyroscopeEvent.UPDATE, x, y, z, accuracy));
 		}
 
-		private function handleProximityStatus(event : StatusEvent) : void
+		private function handleGyroscopeStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{
-				case ProximityStatus.ACCURACY_CHANGE:
+				case GyroscopeStatus.ACCURACY_CHANGE:
 					accuracy = parseInt(event.level);
 
 					break;
-				case ProximityStatus.SENSOR_CHANGE:
-					distance = parseFloat(event.level);
+				case GyroscopeStatus.SENSOR_CHANGE:
+					var values : Array = event.level.split("&");
 
+					x = Number(values[0]);
+					y = Number(values[1]);
+					z = Number(values[2]);
+					
 					break;
 
 				default:

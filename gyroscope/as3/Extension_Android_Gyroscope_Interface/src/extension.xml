@@ -1,0 +1,13 @@
+<extension xmlns="http://ns.adobe.com/air/extension/2.5">
+  <id>de.patrickkulling.air.mobile.extensions.gyroscope</id>
+  <versionNumber>1</versionNumber>
+  <platforms>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>gyroscope.jar</nativeLibrary>
+        <initializer>de.patrickkulling.air.mobile.extensions.gyroscope.GyroscopeExtension</initializer>
+        <finalizer>de.patrickkulling.air.mobile.extensions.gyroscope.GyroscopeExtension</finalizer>
+      </applicationDeployment>
+    </platform>
+  </platforms>
+</extension>
