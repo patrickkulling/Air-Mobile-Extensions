@@ -79,9 +79,9 @@ Change log
 
 **v 0.1**
 
-* **[Added]** Ambient Light Service
-* **[Added]** Orientation Service
-* **[Added]** Proximity Service
+* **[Added]** Ambient Light Sensor
+* **[Added]** Orientation Sensor
+* **[Added]** Proximity Sensor
 * **[Added]** Vibrator Service 
 
 Roadmap
