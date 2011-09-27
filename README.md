@@ -64,9 +64,14 @@ E.g. via ANT
 
 Change log
 ----------
+**v 0.6**
+
+* **[Added]** Battery status
+
 **v 0.5**
 
 * **[Added]** Gyroscope Sensor
+* **[Added]** cancel() method for the Vibrator class
 
 **v 0.4**
 
