@@ -50,6 +50,10 @@ public class ProximityContext extends FREContext
 	@Override
 	public void dispose()
 	{
+		sensorManager = null;
+		proximityListener = null;
+		proximityListener = null;
+
 		availableFunctions = null;
 	}
 

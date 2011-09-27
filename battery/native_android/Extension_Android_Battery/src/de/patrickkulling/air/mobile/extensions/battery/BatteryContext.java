@@ -43,6 +43,9 @@ public class BatteryContext extends FREContext
 	@Override
 	public void dispose()
 	{
+		getActivity().unregisterReceiver(batteryBroadcastReceiver);
+		
+		batteryBroadcastReceiver = null;
 		availableFunctions = null;
 	}
 

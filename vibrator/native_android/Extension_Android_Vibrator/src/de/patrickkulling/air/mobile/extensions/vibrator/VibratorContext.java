@@ -43,6 +43,8 @@ public class VibratorContext extends FREContext
 	@Override
 	public void dispose()
 	{
+		vibrator = null;
+		
 		availableFunctions = null;
 	}
 

@@ -50,6 +50,10 @@ public class OrientationContext extends FREContext
 	@Override
 	public void dispose()
 	{
+		sensorManager = null;
+		orientationSensor = null;
+		orientationListener = null;
+
 		availableFunctions = null;
 	}
 

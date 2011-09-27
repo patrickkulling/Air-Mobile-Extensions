@@ -50,6 +50,10 @@ public class GyroscopeContext extends FREContext
 	@Override
 	public void dispose()
 	{
+		sensorManager = null;
+		gyroscopeSensor = null;
+		gyroscopeListener = null;
+		
 		availableFunctions = null;
 	}
 

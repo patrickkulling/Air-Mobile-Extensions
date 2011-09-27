@@ -50,6 +50,10 @@ public class AmbientLightContext extends FREContext
 	@Override
 	public void dispose()
 	{
+		sensorManager = null;
+		ambientLightSensor = null;
+		ambientLightListener = null;
+
 		availableFunctions = null;
 	}
 
