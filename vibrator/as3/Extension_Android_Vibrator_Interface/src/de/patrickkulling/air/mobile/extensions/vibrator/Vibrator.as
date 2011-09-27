@@ -28,11 +28,14 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.vibrator";
 
 		private static var context : ExtensionContext;
+		private static var referenceCount : int = 0;
 
 		public function Vibrator()
 		{
 			if (context == null)
 				initContext();
+
+			referenceCount++;
 		}
 
 		public static function isSupported() : Boolean
@@ -74,9 +77,17 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 		{
 			if (context == null)
 				return;
-			
-			context.dispose();
-			context = null;
+
+			referenceCount--;
+
+			if (referenceCount < 0)
+				referenceCount = 0;
+
+			if (referenceCount == 0)
+			{
+				context.dispose();
+				context = null;
+			}
 		}
 
 		private static function initContext() : void

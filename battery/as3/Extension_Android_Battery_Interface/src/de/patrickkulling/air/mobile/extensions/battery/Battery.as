@@ -36,6 +36,7 @@ package de.patrickkulling.air.mobile.extensions.battery
 		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.battery";
 
 		private static var context : ExtensionContext;
+		private static var referenceCount : int = 0;
 
 		private static var level : Number;
 		private static var scale : Number;
@@ -49,6 +50,8 @@ package de.patrickkulling.air.mobile.extensions.battery
 
 			if (context.hasEventListener(StatusEvent.STATUS) == false)
 				context.addEventListener(StatusEvent.STATUS, handleBatteryStatus);
+
+			referenceCount++;
 		}
 
 		private function handleBatteryStatus(event : StatusEvent) : void
@@ -74,10 +77,18 @@ package de.patrickkulling.air.mobile.extensions.battery
 			if (context == null)
 				return;
 
-			context.removeEventListener(StatusEvent.STATUS, handleBatteryStatus);
 
-			context.dispose();
-			context = null;
+			referenceCount--;
+
+			if (referenceCount < 0)
+				referenceCount = 0;
+
+			if (referenceCount == 0)
+			{
+				context.removeEventListener(StatusEvent.STATUS, handleBatteryStatus);
+				context.dispose();
+				context = null;
+			}
 		}
 
 		private static function initContext() : void
