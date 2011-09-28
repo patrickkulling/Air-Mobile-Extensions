@@ -58,7 +58,7 @@ package de.patrickkulling.air.mobile.extensions.battery
 		{
 			switch(event.code)
 			{
-				case BatteryStatus.ACCURACY_CHANGE:
+				case BatteryStatus.BATTERY_CHANGE:
 					var values : Array = event.level.split("&");
 
 					level = Number(values[0]);
