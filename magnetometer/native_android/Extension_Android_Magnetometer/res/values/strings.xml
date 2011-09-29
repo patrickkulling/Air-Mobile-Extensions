@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Extension_Android_OrientationActivity!</string>
+    <string name="app_name">Extension_Android_Orientation</string>
+</resources>
