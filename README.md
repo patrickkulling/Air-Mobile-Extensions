@@ -10,7 +10,7 @@ These libraries provides different AIR 3 Native Extension adapters for the Andro
 
 **Dependencies**
 
-- Android 2.2 (API Level 8)
+- Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
 - AIR 3.0 SDK RC1
 
 Usage
@@ -51,6 +51,9 @@ E.g.
 You can dispose all Services via:
 
 	proximity.dispose();
+	
+	
+More information in the [wiki](https://github.com/patrickkulling/Air-Mobile-Extensions/wiki).
 
 **Packaging**
 
