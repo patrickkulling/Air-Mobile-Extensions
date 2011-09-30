@@ -27,10 +27,10 @@ package de.patrickkulling.air.mobile.extensions.gyroscope.event
 	{
 		public static const UPDATE : String = "GyroscopeEvent.UPDATE";
 
-		private var _accuracy : int;
-		private var _x : Number;
-		private var _y : Number;
-		private var _z : Number;
+		protected var _accuracy : int;
+		protected var _x : Number;
+		protected var _y : Number;
+		protected var _z : Number;
 
 		public function GyroscopeEvent(type : String, x : Number, y : Number, z : Number, accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
 		{

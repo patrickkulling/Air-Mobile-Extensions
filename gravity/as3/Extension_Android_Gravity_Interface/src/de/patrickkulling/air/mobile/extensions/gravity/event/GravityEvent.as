@@ -27,10 +27,10 @@ package de.patrickkulling.air.mobile.extensions.gravity.event
 	{
 		public static const UPDATE : String = "GravityEvent.UPDATE";
 
-		private var _accuracy : int;
-		private var _x : Number;
-		private var _y : Number;
-		private var _z : Number;
+		protected var _accuracy : int;
+		protected var _x : Number;
+		protected var _y : Number;
+		protected var _z : Number;
 
 		public function GravityEvent(type : String, x : Number, y : Number, z : Number, accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
 		{

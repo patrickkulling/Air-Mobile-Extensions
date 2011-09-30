@@ -33,15 +33,15 @@ package de.patrickkulling.air.mobile.extensions.battery
 	[Event(name="BatteryEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.battery.event.BatteryEvent")]
 	public class Battery extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.battery";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.battery";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
-		private static var level : Number;
-		private static var scale : Number;
-		private static var temperature : Number;
-		private static var voltage : Number;
+		protected static var level : Number;
+		protected static var scale : Number;
+		protected static var temperature : Number;
+		protected static var voltage : Number;
 
 		public function Battery()
 		{
@@ -54,7 +54,7 @@ package de.patrickkulling.air.mobile.extensions.battery
 			referenceCount++;
 		}
 
-		private function handleBatteryStatus(event : StatusEvent) : void
+		protected function handleBatteryStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{
@@ -91,7 +91,7 @@ package de.patrickkulling.air.mobile.extensions.battery
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 

@@ -27,10 +27,10 @@ package de.patrickkulling.air.mobile.extensions.orientation.event
 	{
 		public static const UPDATE : String = "OrientationEvent.UPDATE";
 		
-		private var _azimuth : Number;
-		private var _pitch : Number;
-		private var _roll : Number;
-		private var _accuracy : int;
+		protected var _azimuth : Number;
+		protected var _pitch : Number;
+		protected var _roll : Number;
+		protected var _accuracy : int;
 
 		public function OrientationEvent(type : String, azimuth : Number, pitch : Number, roll : Number, accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
 		{

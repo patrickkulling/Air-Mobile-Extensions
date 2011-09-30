@@ -32,18 +32,18 @@ package de.patrickkulling.air.mobile.extensions.gravity
 	[Event(name="GravityEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.gravity.event.GravityEvent")]
 	public class Gravity extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.gravity";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.gravity";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
-		private static var accuracy : Number = 0;
-		private static var x : Number = 0;
-		private static var y : Number = 0;
-		private static var z : Number = 0;
+		protected static var accuracy : Number = 0;
+		protected static var x : Number = 0;
+		protected static var y : Number = 0;
+		protected static var z : Number = 0;
 		
-		private var intervalTimer : Timer;
-		private var interval : Number = 200;
+		protected var intervalTimer : Timer;
+		protected var interval : Number = 200;
 
 		public function Gravity()
 		{
@@ -130,7 +130,7 @@ package de.patrickkulling.air.mobile.extensions.gravity
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
@@ -138,7 +138,7 @@ package de.patrickkulling.air.mobile.extensions.gravity
 			context.call("startGravity");
 		}
 
-		private function disposeIntervalTimer() : void
+		protected function disposeIntervalTimer() : void
 		{
 			if (intervalTimer != null)
 			{
@@ -148,20 +148,20 @@ package de.patrickkulling.air.mobile.extensions.gravity
 			}
 		}
 
-		private function createIntervalTimer() : void
+		protected function createIntervalTimer() : void
 		{
 			intervalTimer = new Timer(interval);
 			intervalTimer.addEventListener(TimerEvent.TIMER, handleIntervalTimer);
 			intervalTimer.start();
 		}
 
-		private function handleIntervalTimer(event : TimerEvent) : void
+		protected function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
 				dispatchEvent(new GravityEvent(GravityEvent.UPDATE, x, y, z, accuracy));
 		}
 
-		private function handleGravityStatus(event : StatusEvent) : void
+		protected function handleGravityStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{

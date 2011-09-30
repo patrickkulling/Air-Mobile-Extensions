@@ -33,16 +33,16 @@ package de.patrickkulling.air.mobile.extensions.proximity
 	[Event(name="ProximityEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.proximity.event.ProximityEvent")]
 	public class Proximity extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.proximity";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.proximity";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
-		private static var accuracy : Number = 0;
-		private static var distance : Number = 0;
+		protected static var accuracy : Number = 0;
+		protected static var distance : Number = 0;
 		
-		private var intervalTimer : Timer;
-		private var interval : Number = 200;
+		protected var intervalTimer : Timer;
+		protected var interval : Number = 200;
 
 		public function Proximity()
 		{
@@ -129,7 +129,7 @@ package de.patrickkulling.air.mobile.extensions.proximity
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
@@ -137,7 +137,7 @@ package de.patrickkulling.air.mobile.extensions.proximity
 			context.call("startProximity");
 		}
 
-		private function disposeIntervalTimer() : void
+		protected function disposeIntervalTimer() : void
 		{
 			if (intervalTimer != null)
 			{
@@ -147,20 +147,20 @@ package de.patrickkulling.air.mobile.extensions.proximity
 			}
 		}
 
-		private function createIntervalTimer() : void
+		protected function createIntervalTimer() : void
 		{
 			intervalTimer = new Timer(interval);
 			intervalTimer.addEventListener(TimerEvent.TIMER, handleIntervalTimer);
 			intervalTimer.start();
 		}
 
-		private function handleIntervalTimer(event : TimerEvent) : void
+		protected function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
 				dispatchEvent(new ProximityEvent(ProximityEvent.UPDATE, distance, accuracy));
 		}
 
-		private function handleProximityStatus(event : StatusEvent) : void
+		protected function handleProximityStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{

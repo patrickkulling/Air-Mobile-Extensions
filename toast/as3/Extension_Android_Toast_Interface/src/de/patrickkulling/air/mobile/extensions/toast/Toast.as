@@ -25,10 +25,10 @@ package de.patrickkulling.air.mobile.extensions.toast
 
 	public class Toast
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.toast";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.toast";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
 		public function Toast()
 		{
@@ -63,7 +63,7 @@ package de.patrickkulling.air.mobile.extensions.toast
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 		}

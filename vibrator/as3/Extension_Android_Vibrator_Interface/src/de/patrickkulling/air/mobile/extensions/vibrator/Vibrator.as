@@ -25,10 +25,10 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 
 	public class Vibrator
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.vibrator";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.vibrator";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
 		public function Vibrator()
 		{
@@ -90,7 +90,7 @@ package de.patrickkulling.air.mobile.extensions.vibrator
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 

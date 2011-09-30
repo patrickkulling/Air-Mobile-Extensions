@@ -27,8 +27,8 @@ package de.patrickkulling.air.mobile.extensions.ambientlight.event
 	{
 		public static const UPDATE : String = "AmbientLight.UPDATE";
 		
-		private var _lightLevel : Number;
-		private var _accuracy : int;
+		protected var _lightLevel : Number;
+		protected var _accuracy : int;
 
 		public function AmbientLightEvent(type : String, lightLevel : Number, accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
 		{

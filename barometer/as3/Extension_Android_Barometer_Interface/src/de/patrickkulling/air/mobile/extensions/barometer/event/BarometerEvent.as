@@ -27,8 +27,8 @@ package de.patrickkulling.air.mobile.extensions.barometer.event
 	{
 		public static const UPDATE : String = "BarometerEvent.UPDATE";
 
-		private var _accuracy : int;
-		private var _pressure : Number;
+		protected var _accuracy : int;
+		protected var _pressure : Number;
 
 		public function BarometerEvent(type : String, pressure : Number,  accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
 		{

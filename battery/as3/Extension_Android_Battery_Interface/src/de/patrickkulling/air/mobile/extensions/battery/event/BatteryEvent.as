@@ -6,10 +6,10 @@ package de.patrickkulling.air.mobile.extensions.battery.event
 	{
 		public static const UPDATE : String = "BatteryEvent.UPDATE";
 		
-		private var _level : Number;
-		private var _scale : Number;
-		private var _temperature : Number;
-		private var _voltage : Number;
+		protected var _level : Number;
+		protected var _scale : Number;
+		protected var _temperature : Number;
+		protected var _voltage : Number;
 
 		public function BatteryEvent(type : String, level : Number, scale : Number, temperature : Number, voltage : Number)
 		{

@@ -35,18 +35,18 @@ package de.patrickkulling.air.mobile.extensions.orientation
 	[Event(name="OrientationEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.orientation.event.OrientationEvent")]
 	public class Orientation extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.orientation";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.orientation";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
-		private static var azimuth : Number = 0;
-		private static var pitch : Number = 0;
-		private static var roll : Number = 0;
-		private static var accuracy : Number = 0;
+		protected static var azimuth : Number = 0;
+		protected static var pitch : Number = 0;
+		protected static var roll : Number = 0;
+		protected static var accuracy : Number = 0;
 
-		private var intervalTimer : Timer;
-		private var interval : Number = 200;
+		protected var intervalTimer : Timer;
+		protected var interval : Number = 200;
 		
 		public function Orientation()
 		{
@@ -133,7 +133,7 @@ package de.patrickkulling.air.mobile.extensions.orientation
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
@@ -141,7 +141,7 @@ package de.patrickkulling.air.mobile.extensions.orientation
 			context.call("startOrientation");
 		}
 
-		private function disposeIntervalTimer() : void
+		protected function disposeIntervalTimer() : void
 		{
 			if (intervalTimer != null)
 			{
@@ -151,20 +151,20 @@ package de.patrickkulling.air.mobile.extensions.orientation
 			}
 		}
 
-		private function createIntervalTimer() : void
+		protected function createIntervalTimer() : void
 		{
 			intervalTimer = new Timer(interval);
 			intervalTimer.addEventListener(TimerEvent.TIMER, handleIntervalTimer);
 			intervalTimer.start();
 		}
 
-		private function handleIntervalTimer(event : TimerEvent) : void
+		protected function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
 				dispatchEvent(new OrientationEvent(OrientationEvent.UPDATE, azimuth, pitch, roll, accuracy));
 		}
 
-		private function handleOrientationStatus(event : StatusEvent) : void
+		protected function handleOrientationStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{

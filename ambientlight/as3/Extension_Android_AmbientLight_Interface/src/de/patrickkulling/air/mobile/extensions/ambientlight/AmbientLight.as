@@ -34,16 +34,16 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 	[Event(name="AmbientLightEvent.UPDATE", type="de.patrickkulling.air.mobile.extensions.ambientlight.event.AmbientLightEvent")]
 	public class AmbientLight extends EventDispatcher
 	{
-		private static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.ambientlight";
+		protected static const EXTENSION_ID : String = "de.patrickkulling.air.mobile.extensions.ambientlight";
 
-		private static var context : ExtensionContext;
-		private static var referenceCount : int = 0;
+		protected static var context : ExtensionContext;
+		protected static var referenceCount : int = 0;
 
-		private static var accuracy : Number = 0;
-		private static var lightLevel : Number = 0;
+		protected static var accuracy : Number = 0;
+		protected static var lightLevel : Number = 0;
 		
-		private var intervalTimer : Timer;
-		private var interval : Number = 200;
+		protected var intervalTimer : Timer;
+		protected var interval : Number = 200;
 
 		public function AmbientLight()
 		{
@@ -130,7 +130,7 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 			}
 		}
 
-		private static function initContext() : void
+		protected static function initContext() : void
 		{
 			context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
 
@@ -138,7 +138,7 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 			context.call("startAmbientLight");
 		}
 
-		private function disposeIntervalTimer() : void
+		protected function disposeIntervalTimer() : void
 		{
 			if (intervalTimer != null)
 			{
@@ -148,20 +148,20 @@ package de.patrickkulling.air.mobile.extensions.ambientlight
 			}
 		}
 
-		private function createIntervalTimer() : void
+		protected function createIntervalTimer() : void
 		{
 			intervalTimer = new Timer(interval);
 			intervalTimer.addEventListener(TimerEvent.TIMER, handleIntervalTimer);
 			intervalTimer.start();
 		}
 
-		private function handleIntervalTimer(event : TimerEvent) : void
+		protected function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
 				dispatchEvent(new AmbientLightEvent(AmbientLightEvent.UPDATE, lightLevel, accuracy));
 		}
 
-		private function handleAmbientLightStatus(event : StatusEvent) : void
+		protected function handleAmbientLightStatus(event : StatusEvent) : void
 		{
 			switch(event.code)
 			{
