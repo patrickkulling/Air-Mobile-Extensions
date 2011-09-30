@@ -1,0 +1,13 @@
+<extension xmlns="http://ns.adobe.com/air/extension/2.5">
+  <id>de.patrickkulling.air.mobile.extensions.toast</id>
+  <versionNumber>1</versionNumber>
+  <platforms>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>toast.jar</nativeLibrary>
+        <initializer>de.patrickkulling.air.mobile.extensions.toast.ToastExtension</initializer>
+        <finalizer>de.patrickkulling.air.mobile.extensions.toast.ToastExtension</finalizer>
+      </applicationDeployment>
+    </platform>
+  </platforms>
+</extension>
