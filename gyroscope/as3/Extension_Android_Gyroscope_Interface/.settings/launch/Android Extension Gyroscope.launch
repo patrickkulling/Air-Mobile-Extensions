@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.powerflasher.fdt.ui.CompcGroup">
 <stringAttribute key="ARGUMENTS" value=" -target-player={playerVersion}"/>
-<stringAttribute key="LAUNCHER_DEPENDENCIES" value="[Self]"/>
+<stringAttribute key="LAUNCHER_DEPENDENCIES" value="[Self]&#10;Extension_Android_Gyroscope_Interface build.xml"/>
 <stringAttribute key="OUTPUT" value="bin/android_gyroscope_extension.swc"/>
 <booleanAttribute key="PASS_CP" value="true"/>
 <booleanAttribute key="PASS_RSLS" value="false"/>
