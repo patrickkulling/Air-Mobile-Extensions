@@ -38,7 +38,9 @@ package de.patrickkulling.air.mobile.extensions.gravity
 		private static var referenceCount : int = 0;
 
 		private static var accuracy : Number = 0;
-		private static var gravity : Number = 0;
+		private static var x : Number = 0;
+		private static var y : Number = 0;
+		private static var z : Number = 0;
 		
 		private var intervalTimer : Timer;
 		private var interval : Number = 200;
@@ -156,7 +158,7 @@ package de.patrickkulling.air.mobile.extensions.gravity
 		private function handleIntervalTimer(event : TimerEvent) : void
 		{
 			if (context != null)
-				dispatchEvent(new GravityEvent(GravityEvent.UPDATE, gravity, accuracy));
+				dispatchEvent(new GravityEvent(GravityEvent.UPDATE, x, y, z, accuracy));
 		}
 
 		private function handleGravityStatus(event : StatusEvent) : void
@@ -168,7 +170,11 @@ package de.patrickkulling.air.mobile.extensions.gravity
 
 					break;
 				case GravityStatus.SENSOR_CHANGE:
-					gravity = parseFloat(event.level);
+					var values : Array = event.level.split("&");
+
+					x = Number(values[0]);
+					y = Number(values[1]);
+					z = Number(values[2]);
 					
 					break;
 

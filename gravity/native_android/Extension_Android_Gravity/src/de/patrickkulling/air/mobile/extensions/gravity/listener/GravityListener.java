@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Patrick Kulling
+ * Copyright (c) 2011 Patrick Kulling, Philipp Arnolds
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -55,9 +55,13 @@ public class GravityListener implements SensorEventListener
 	{
 		if (context != null)
 		{
+			StringBuilder gyroscopeValues = new StringBuilder(Float.toString(event.values[0]));
+
+			gyroscopeValues.append("&").append(Float.toString(event.values[1])).append("&").append(Float.toString(event.values[2]));
+
 			try
 			{
-				context.dispatchStatusEventAsync(GravityStatus.SENSOR_CHANGE, Float.toString(event.values[0]));
+				context.dispatchStatusEventAsync(GravityStatus.SENSOR_CHANGE, gyroscopeValues.toString());
 			} catch (IllegalArgumentException e)
 			{
 				Log.e("GravityListener", "context is not available anymore.");

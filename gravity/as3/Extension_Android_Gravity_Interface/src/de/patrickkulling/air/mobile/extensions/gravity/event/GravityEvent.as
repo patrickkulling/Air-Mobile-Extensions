@@ -28,13 +28,18 @@ package de.patrickkulling.air.mobile.extensions.gravity.event
 		public static const UPDATE : String = "GravityEvent.UPDATE";
 
 		private var _accuracy : int;
-		private var _gravity : Number;
+		private var _x : Number;
+		private var _y : Number;
+		private var _z : Number;
 
-		public function GravityEvent(type : String, gravity : Number, accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
+		public function GravityEvent(type : String, x : Number, y : Number, z : Number, accuracy : int, bubbles : Boolean = false, cancelable : Boolean = false)
 		{
 			super(type, bubbles, cancelable);
 
-			_gravity = gravity;
+			_x = x;
+			_y = y;
+			_z = z;
+
 			_accuracy = accuracy;
 		}
 
@@ -45,12 +50,22 @@ package de.patrickkulling.air.mobile.extensions.gravity.event
 
 		public override function clone() : Event
 		{
-			return new GravityEvent(type, _gravity, _accuracy, bubbles, cancelable);
+			return new GravityEvent(type, _x, _y, _z, _accuracy, bubbles, cancelable);
 		}
 
-		public function get gravity() : Number
+		public function get x() : Number
 		{
-			return _gravity;
+			return _x;
+		}
+
+		public function get y() : Number
+		{
+			return _y;
+		}
+
+		public function get z() : Number
+		{
+			return _z;
 		}
 	}
 }
