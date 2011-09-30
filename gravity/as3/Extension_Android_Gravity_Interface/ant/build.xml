@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Native Extension - Android - Gravity"
+         basedir="../"
+         default="00. [build extension]">
+
+	<property name="native.dir"
+	          value="/Users/patrick/workspaces/github/Air Mobile Extensions/gravity/native_android/Extension_Android_Gravity" />
+
+	<property name="swc.name" value="android_gravity_extension.swc" />
+
+	<fdt.loadProjectProperties projectname="Extension_Android_Gravity_Interface" />
+
+	<target name="00. [build extension]">
+
+		<delete dir="build" />
+
+		<mkdir dir="build/ane/Android-ARM/res" />
+
+		<copy todir="build/ane/Android-ARM/res">
+			<fileset dir="${native.dir}/res" />
+		</copy>
+
+		<jar destfile="build/ane/Android-ARM/gravity.jar"
+		     basedir="${native.dir}/bin" />
+
+		<copy todir="build/ane/">
+			<fileset file="./src/extension.xml" />
+		</copy>
+
+		<copy todir="build/ane/">
+			<fileset file="./bin/${swc.name}" />
+		</copy>
+
+		<unzip src="./build/ane/${swc.name}" dest="./build/ane/" />
+
+		<move file="./build/ane/library.swf" todir="./build/ane/Android-ARM/" />
+
+		<java jar="${FDTProjectSdkPath}/lib/adt.jar" fork="true">
+			<arg value="-package" />
+
+			<arg value="-storetype" />
+			<arg value="PKCS12" />
+			<arg value="-keystore" />
+			<arg value="./cert/exampleCert.p12" />
+			<arg value="-storepass" />
+			<arg value="test" />
+
+			<arg value="-tsa" />
+			<arg value="none" />
+
+			<arg value="-target" />
+			<arg value="ane" />
+
+			<arg value="./build/de.patrickkulling.air.mobile.extensions.gravity.ane" />
+
+			<arg value="./build/ane/extension.xml" />
+
+			<arg value="-swc" />
+			<arg value="./build/ane/${swc.name}" />
+
+			<arg value="-platform" />
+			<arg value="Android-ARM" />
+
+			<arg value="-C" />
+			<arg value="./build/ane/Android-ARM" />
+			<arg value="." />
+		</java>
+
+		<copy todir="../../extension/"
+		      file="./build/de.patrickkulling.air.mobile.extensions.gravity.ane" />
+
+		<copy todir="../../extension/" file="./build/ane/${swc.name}" />
+
+		<delete dir="build" />
+
+	</target>
+
+</project>

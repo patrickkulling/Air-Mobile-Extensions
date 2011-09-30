@@ -64,6 +64,15 @@ E.g. via ANT
 
 Change log
 ----------
+**v 0.8**
+
+* **[Added]** Gravity Sensor
+
+**v 0.7**
+
+* **[Added]** Pressure/Barometer Sensor
+* **[Added]** Magnetometer Sensor
+
 **v 0.6**
 
 * **[Added]** Battery status
