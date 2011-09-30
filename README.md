@@ -69,6 +69,7 @@ Change log
 ----------
 **v 0.8**
 
+* **[Added]** Toast Messages
 * **[Added]** Gravity Sensor
 
 **v 0.7**
