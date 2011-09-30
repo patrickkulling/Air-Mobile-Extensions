@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.gravity.events.GravityStatus;
 
 public class GravityListener implements SensorEventListener
 {
-	private final GravityContext context;
+	protected final GravityContext context;
 
 	public GravityListener(GravityContext context)
 	{

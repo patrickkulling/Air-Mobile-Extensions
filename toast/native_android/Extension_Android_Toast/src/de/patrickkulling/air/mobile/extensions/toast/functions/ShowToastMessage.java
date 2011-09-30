@@ -47,7 +47,7 @@ public class ShowToastMessage implements FREFunction
 		return null;
 	}
 
-	private String getMessage(FREObject messageObject)
+	protected String getMessage(FREObject messageObject)
 	{
 		String message = null;
 
@@ -71,7 +71,7 @@ public class ShowToastMessage implements FREFunction
 		return message;
 	}
 
-	private int getToastType(FREObject toastTypeObject)
+	protected int getToastType(FREObject toastTypeObject)
 	{
 		try
 		{

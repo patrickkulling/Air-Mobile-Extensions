@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class BarometerExtension implements FREExtension
 {
-	private BarometerContext context;
+	protected BarometerContext context;
 
 	public FREContext createContext(String arg0)
 	{

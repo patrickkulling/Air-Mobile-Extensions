@@ -29,20 +29,24 @@ import com.adobe.fre.FREObject;
 
 import de.patrickkulling.air.mobile.extensions.magnetometer.MagnetometerContext;
 
-public class GetPower implements FREFunction {
+public class GetPower implements FREFunction
+{
 
-	public FREObject call(FREContext context, FREObject[] params) {
+	public FREObject call(FREContext context, FREObject[] params)
+	{
 		MagnetometerContext magnetometerContext = (MagnetometerContext) context;
 
 		Sensor magnetometerSensor = magnetometerContext.magnetometerSensor;
 
 		FREObject returnObject = null;
 
-		if (magnetometerSensor != null) {
-			try {
-				returnObject = FREObject.newObject(magnetometerSensor
-						.getPower());
-			} catch (Exception e) {
+		if (magnetometerSensor != null)
+		{
+			try
+			{
+				returnObject = FREObject.newObject(magnetometerSensor.getPower());
+			} catch (Exception e)
+			{
 			}
 		}
 

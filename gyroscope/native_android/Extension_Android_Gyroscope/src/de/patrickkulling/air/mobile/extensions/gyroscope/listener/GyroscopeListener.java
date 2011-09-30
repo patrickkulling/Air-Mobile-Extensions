@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.gyroscope.events.GyroscopeStatus;
 
 public class GyroscopeListener implements SensorEventListener
 {
-	private final GyroscopeContext context;
+	protected final GyroscopeContext context;
 
 	public GyroscopeListener(GyroscopeContext context)
 	{

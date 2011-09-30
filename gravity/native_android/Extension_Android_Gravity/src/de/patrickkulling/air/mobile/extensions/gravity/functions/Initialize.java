@@ -43,7 +43,7 @@ public class Initialize implements FREFunction
 		gravityContext.sensorManager = sensorManager;
 		gravityContext.gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
 		gravityContext.gravityListener = new GravityListener((GravityContext) context);
-		
+
 		return null;
 	}
 }

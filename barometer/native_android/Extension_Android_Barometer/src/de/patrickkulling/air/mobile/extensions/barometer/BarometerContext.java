@@ -41,7 +41,7 @@ import de.patrickkulling.air.mobile.extensions.barometer.listener.BarometerListe
 
 public class BarometerContext extends FREContext
 {
-	private HashMap<String, FREFunction> availableFunctions;
+	protected HashMap<String, FREFunction> availableFunctions;
 	
 	public SensorManager sensorManager;
 	public Sensor barometerSensor;

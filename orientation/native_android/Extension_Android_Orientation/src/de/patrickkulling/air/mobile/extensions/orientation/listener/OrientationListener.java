@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.orientation.events.OrientationSta
 
 public class OrientationListener implements SensorEventListener
 {
-	private final OrientationContext context;
+	protected final OrientationContext context;
 
 	public OrientationListener(OrientationContext context)
 	{

@@ -34,7 +34,7 @@ import de.patrickkulling.air.mobile.extensions.battery.functions.Initialize;
 
 public class BatteryContext extends FREContext
 {
-	private HashMap<String, FREFunction> availableFunctions;
+	protected HashMap<String, FREFunction> availableFunctions;
 	
 	public Vibrator vibrator;
 

@@ -41,7 +41,7 @@ import de.patrickkulling.air.mobile.extensions.ambientlight.listener.AmbientLigh
 
 public class AmbientLightContext extends FREContext
 {
-	private HashMap<String, FREFunction> availableFunctions;
+	protected HashMap<String, FREFunction> availableFunctions;
 	
 	public SensorManager sensorManager;
 	public Sensor ambientLightSensor;

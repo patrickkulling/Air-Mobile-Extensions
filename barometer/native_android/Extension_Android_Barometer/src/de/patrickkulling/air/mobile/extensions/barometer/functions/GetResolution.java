@@ -49,7 +49,7 @@ public class GetResolution implements FREFunction
 			{
 			}
 		}
-		
+
 		return returnObject;
 	}
 

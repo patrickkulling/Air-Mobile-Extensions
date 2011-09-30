@@ -41,7 +41,7 @@ import de.patrickkulling.air.mobile.extensions.orientation.listener.OrientationL
 
 public class OrientationContext extends FREContext
 {
-	private HashMap<String, FREFunction> availableFunctions;
+	protected HashMap<String, FREFunction> availableFunctions;
 	
 	public SensorManager sensorManager;
 	public Sensor orientationSensor;

@@ -10,12 +10,12 @@ import de.patrickkulling.air.mobile.extensions.battery.event.BatteryStatus;
 
 public class BatteryBroadcastReceiver extends BroadcastReceiver
 {
-	private BatteryContext batteryContext;
+	protected BatteryContext batteryContext;
 
-	private int level = 0;
-	private int scale = 0;
-	private int temperature = 0;
-	private int voltage = 0;
+	protected int level = 0;
+	protected int scale = 0;
+	protected int temperature = 0;
+	protected int voltage = 0;
 
 	public BatteryBroadcastReceiver(BatteryContext context)
 	{
@@ -43,10 +43,5 @@ public class BatteryBroadcastReceiver extends BroadcastReceiver
 				Log.e("BatteryBroadcastReceiver", "context is not available anymore.");
 			}
 		}
-
-		System.out.println("battery level: " + level);
-		System.out.println("battery scale: " + scale);
-		System.out.println("battery temperature: " + temperature);
-		System.out.println("battery voltage: " + voltage);
 	}
 }

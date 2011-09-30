@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.barometer.events.BarometerStatus;
 
 public class BarometerListener implements SensorEventListener
 {
-	private final BarometerContext context;
+	protected final BarometerContext context;
 
 	public BarometerListener(BarometerContext context)
 	{

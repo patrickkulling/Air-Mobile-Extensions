@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class ToastExtension implements FREExtension
 {
-	private ToastContext context;
+	protected ToastContext context;
 
 	public FREContext createContext(String arg0)
 	{

@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class GravityExtension implements FREExtension
 {
-	private GravityContext context;
+	protected GravityContext context;
 
 	public FREContext createContext(String arg0)
 	{

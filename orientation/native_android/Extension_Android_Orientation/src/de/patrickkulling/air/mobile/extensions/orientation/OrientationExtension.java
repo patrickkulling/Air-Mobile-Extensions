@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class OrientationExtension implements FREExtension
 {
-	private OrientationContext context;
+	protected OrientationContext context;
 
 	public FREContext createContext(String arg0)
 	{

@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class BatteryExtension implements FREExtension
 {
-	private BatteryContext context;
+	protected BatteryContext context;
 
 	public FREContext createContext(String arg0)
 	{

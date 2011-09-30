@@ -29,20 +29,24 @@ import com.adobe.fre.FREObject;
 
 import de.patrickkulling.air.mobile.extensions.gravity.GravityContext;
 
-public class GetPower implements FREFunction {
+public class GetPower implements FREFunction
+{
 
-	public FREObject call(FREContext context, FREObject[] params) {
+	public FREObject call(FREContext context, FREObject[] params)
+	{
 		GravityContext gravityContext = (GravityContext) context;
 
 		Sensor gravitySensor = gravityContext.gravitySensor;
 
 		FREObject returnObject = null;
 
-		if (gravitySensor != null) {
-			try {
-				returnObject = FREObject.newObject(gravitySensor
-						.getPower());
-			} catch (Exception e) {
+		if (gravitySensor != null)
+		{
+			try
+			{
+				returnObject = FREObject.newObject(gravitySensor.getPower());
+			} catch (Exception e)
+			{
 			}
 		}
 

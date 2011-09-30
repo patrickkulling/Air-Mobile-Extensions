@@ -50,7 +50,7 @@ public class Vibrate implements FREFunction
 		return null;
 	}
 
-	private int getMilliseconds(FREObject[] params)
+	protected int getMilliseconds(FREObject[] params)
 	{
 		int milliseconds = -1;
 

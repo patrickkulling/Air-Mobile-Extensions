@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class VibratorExtension implements FREExtension
 {
-	private VibratorContext context;
+	protected VibratorContext context;
 
 	public FREContext createContext(String arg0)
 	{

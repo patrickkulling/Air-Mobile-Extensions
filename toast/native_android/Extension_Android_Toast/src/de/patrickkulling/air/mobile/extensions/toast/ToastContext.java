@@ -24,8 +24,6 @@ package de.patrickkulling.air.mobile.extensions.toast;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.os.Vibrator;
-
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 
@@ -33,15 +31,11 @@ import de.patrickkulling.air.mobile.extensions.toast.functions.ShowToastMessage;
 
 public class ToastContext extends FREContext
 {
-	private HashMap<String, FREFunction> availableFunctions;
-	
-	public Vibrator vibrator;
+	protected HashMap<String, FREFunction> availableFunctions;
 
 	@Override
 	public void dispose()
 	{
-		vibrator = null;
-		
 		availableFunctions = null;
 	}
 

@@ -31,8 +31,10 @@ import com.adobe.fre.FREObject;
 import de.patrickkulling.air.mobile.extensions.gravity.GravityContext;
 import de.patrickkulling.air.mobile.extensions.gravity.listener.GravityListener;
 
-public class StopGravity implements FREFunction {
-	public FREObject call(FREContext context, FREObject[] params) {
+public class StopGravity implements FREFunction
+{
+	public FREObject call(FREContext context, FREObject[] params)
+	{
 		GravityContext gravityContext = (GravityContext) context;
 
 		SensorManager sensorManager = gravityContext.sensorManager;
@@ -40,8 +42,7 @@ public class StopGravity implements FREFunction {
 		GravityListener gravityListener = gravityContext.gravityListener;
 
 		if (gravitySensor != null)
-			sensorManager.unregisterListener(gravityListener,
-					gravitySensor);
+			sensorManager.unregisterListener(gravityListener, gravitySensor);
 
 		return null;
 	}

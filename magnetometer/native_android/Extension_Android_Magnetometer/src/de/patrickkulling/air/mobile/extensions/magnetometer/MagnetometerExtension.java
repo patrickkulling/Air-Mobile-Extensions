@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class MagnetometerExtension implements FREExtension
 {
-	private MagnetometerContext context;
+	protected MagnetometerContext context;
 
 	public FREContext createContext(String arg0)
 	{

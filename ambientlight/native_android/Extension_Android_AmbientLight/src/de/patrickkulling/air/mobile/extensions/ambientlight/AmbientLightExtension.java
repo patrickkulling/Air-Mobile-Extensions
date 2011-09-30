@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class AmbientLightExtension implements FREExtension
 {
-	private AmbientLightContext context;
+	protected AmbientLightContext context;
 
 	public FREContext createContext(String arg0)
 	{

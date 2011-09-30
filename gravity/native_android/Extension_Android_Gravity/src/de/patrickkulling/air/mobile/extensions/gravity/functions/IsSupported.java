@@ -29,8 +29,10 @@ import com.adobe.fre.FREObject;
 
 import de.patrickkulling.air.mobile.extensions.gravity.GravityContext;
 
-public class IsSupported implements FREFunction {
-	public FREObject call(FREContext context, FREObject[] params) {
+public class IsSupported implements FREFunction
+{
+	public FREObject call(FREContext context, FREObject[] params)
+	{
 		GravityContext pressureContext = (GravityContext) context;
 
 		Sensor pressureSensor = pressureContext.gravitySensor;
@@ -42,10 +44,12 @@ public class IsSupported implements FREFunction {
 
 		FREObject returnObject = null;
 
-		try {
+		try
+		{
 			returnObject = FREObject.newObject(isSupported);
 
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 		}
 
 		return returnObject;

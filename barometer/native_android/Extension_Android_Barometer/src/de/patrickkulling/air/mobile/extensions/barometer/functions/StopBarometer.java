@@ -31,8 +31,10 @@ import com.adobe.fre.FREObject;
 import de.patrickkulling.air.mobile.extensions.barometer.BarometerContext;
 import de.patrickkulling.air.mobile.extensions.barometer.listener.BarometerListener;
 
-public class StopBarometer implements FREFunction {
-	public FREObject call(FREContext context, FREObject[] params) {
+public class StopBarometer implements FREFunction
+{
+	public FREObject call(FREContext context, FREObject[] params)
+	{
 		BarometerContext barometerContext = (BarometerContext) context;
 
 		SensorManager sensorManager = barometerContext.sensorManager;
@@ -40,8 +42,7 @@ public class StopBarometer implements FREFunction {
 		BarometerListener barometerListener = barometerContext.barometerListener;
 
 		if (barometerSensor != null)
-			sensorManager.unregisterListener(barometerListener,
-					barometerSensor);
+			sensorManager.unregisterListener(barometerListener, barometerSensor);
 
 		return null;
 	}

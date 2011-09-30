@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class GyroscopeExtension implements FREExtension
 {
-	private GyroscopeContext context;
+	protected GyroscopeContext context;
 
 	public FREContext createContext(String arg0)
 	{

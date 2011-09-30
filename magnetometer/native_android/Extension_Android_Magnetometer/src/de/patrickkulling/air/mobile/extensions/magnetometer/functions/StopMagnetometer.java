@@ -31,8 +31,10 @@ import com.adobe.fre.FREObject;
 import de.patrickkulling.air.mobile.extensions.magnetometer.MagnetometerContext;
 import de.patrickkulling.air.mobile.extensions.magnetometer.listener.MagnetometerListener;
 
-public class StopMagnetometer implements FREFunction {
-	public FREObject call(FREContext context, FREObject[] params) {
+public class StopMagnetometer implements FREFunction
+{
+	public FREObject call(FREContext context, FREObject[] params)
+	{
 		MagnetometerContext magnetometerContext = (MagnetometerContext) context;
 
 		SensorManager sensorManager = magnetometerContext.sensorManager;
@@ -40,8 +42,7 @@ public class StopMagnetometer implements FREFunction {
 		MagnetometerListener magnetometerListener = magnetometerContext.magnetometerListener;
 
 		if (magnetometerSensor != null)
-			sensorManager.unregisterListener(magnetometerListener,
-					magnetometerSensor);
+			sensorManager.unregisterListener(magnetometerListener, magnetometerSensor);
 
 		return null;
 	}

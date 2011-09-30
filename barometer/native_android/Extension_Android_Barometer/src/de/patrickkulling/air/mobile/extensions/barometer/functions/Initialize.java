@@ -43,7 +43,7 @@ public class Initialize implements FREFunction
 		barometerContext.sensorManager = sensorManager;
 		barometerContext.barometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 		barometerContext.barometerListener = new BarometerListener((BarometerContext) context);
-		
+
 		return null;
 	}
 }

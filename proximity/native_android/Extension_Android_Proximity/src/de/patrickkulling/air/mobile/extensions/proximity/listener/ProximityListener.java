@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.proximity.events.ProximityStatus;
 
 public class ProximityListener implements SensorEventListener
 {
-	private final ProximityContext context;
+	protected final ProximityContext context;
 
 	public ProximityListener(ProximityContext context)
 	{

@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.ambientlight.events.AmbientLightS
 
 public class AmbientLightListener implements SensorEventListener
 {
-	private final AmbientLightContext context;
+	protected final AmbientLightContext context;
 
 	public AmbientLightListener(AmbientLightContext context)
 	{

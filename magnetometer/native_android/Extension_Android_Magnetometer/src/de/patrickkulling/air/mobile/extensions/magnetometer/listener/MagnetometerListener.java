@@ -30,7 +30,7 @@ import de.patrickkulling.air.mobile.extensions.magnetometer.events.MagnetometerS
 
 public class MagnetometerListener implements SensorEventListener
 {
-	private final MagnetometerContext context;
+	protected final MagnetometerContext context;
 
 	public MagnetometerListener(MagnetometerContext context)
 	{

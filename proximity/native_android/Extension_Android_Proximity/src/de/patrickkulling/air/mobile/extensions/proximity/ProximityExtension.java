@@ -26,7 +26,7 @@ import com.adobe.fre.FREExtension;
 
 public class ProximityExtension implements FREExtension
 {
-	private ProximityContext context;
+	protected ProximityContext context;
 
 	public FREContext createContext(String arg0)
 	{

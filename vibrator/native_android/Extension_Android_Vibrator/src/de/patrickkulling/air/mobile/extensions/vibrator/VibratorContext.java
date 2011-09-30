@@ -36,7 +36,7 @@ import de.patrickkulling.air.mobile.extensions.vibrator.functions.Vibrate;
 
 public class VibratorContext extends FREContext
 {
-	private HashMap<String, FREFunction> availableFunctions;
+	protected HashMap<String, FREFunction> availableFunctions;
 	
 	public Vibrator vibrator;
 
