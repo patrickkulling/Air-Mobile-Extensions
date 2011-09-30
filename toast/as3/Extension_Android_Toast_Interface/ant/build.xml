@@ -4,10 +4,13 @@
          basedir="../"
          default="00. [build extension]">
 
-	<property name="native.dir"
-	          value="/Users/patrick/workspaces/github/Air Mobile Extensions/toast/native_android/Extension_Android_Toast" />
+	<property name="native.name" value="toast" />
+	<property name="swc.name" value="android_${native.name}_extension.swc" />
+	<property name="ane.file"
+	          value="./build/de.patrickkulling.air.mobile.extensions.${native.name}.ane" />
 
-	<property name="swc.name" value="android_toast_extension.swc" />
+	<property name="native.dir"
+	          value="../../native_android/Extension_Android_Toast" />
 
 	<fdt.loadProjectProperties projectname="Extension_Android_Toast_Interface" />
 
@@ -15,14 +18,14 @@
 	<target name="00. [build extension]">
 
 		<delete dir="build" />
-		
+
 		<mkdir dir="build/ane/Android-ARM/res" />
 
 		<copy todir="build/ane/Android-ARM/res">
 			<fileset dir="${native.dir}/res" />
 		</copy>
 
-		<jar destfile="build/ane/Android-ARM/toast.jar"
+		<jar destfile="build/ane/Android-ARM/${native.name}.jar"
 		     basedir="${native.dir}/bin" />
 
 		<copy todir="build/ane/">
@@ -53,7 +56,7 @@
 			<arg value="-target" />
 			<arg value="ane" />
 
-			<arg value="./build/de.patrickkulling.air.mobile.extensions.toast.ane" />
+			<arg value="${ane.file}" />
 
 			<arg value="./build/ane/extension.xml" />
 
@@ -69,7 +72,7 @@
 		</java>
 
 		<copy todir="../../extension/"
-		      file="./build/de.patrickkulling.air.mobile.extensions.toast.ane" />
+		      file="${ane.file}" />
 
 		<copy todir="../../extension/" file="./build/ane/${swc.name}" />
 

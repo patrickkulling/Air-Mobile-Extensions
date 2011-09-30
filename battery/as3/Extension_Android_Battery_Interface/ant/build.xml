@@ -4,12 +4,15 @@
          basedir="../"
          default="00. [build extension]">
 
+	<property name="native.name" value="battery" />
+	<property name="swc.name" value="android_${native.name}_extension.swc" />
+	<property name="ane.file"
+	          value="./build/de.patrickkulling.air.mobile.extensions.${native.name}.ane" />
+
 	<property name="native.dir"
-	          value="/Users/patrick/workspaces/github/Air Mobile Extensions/battery/native_android/Extension_Android_Battery" />
+	          value="../../native_android/Extension_Android_Battery" />
 
-	<property name="swc.name" value="android_battery_extension.swc" />
-
-	<fdt.loadProjectProperties projectname="Extension_Android_Gyroscope_Interface" />
+	<fdt.loadProjectProperties projectname="Extension_Android_Battery_Interface" />
 
 	<target name="00. [build extension]">
 
@@ -21,7 +24,7 @@
 			<fileset dir="${native.dir}/res" />
 		</copy>
 
-		<jar destfile="build/ane/Android-ARM/battery.jar"
+		<jar destfile="build/ane/Android-ARM/${native.name}.jar"
 		     basedir="${native.dir}/bin" />
 
 		<copy todir="build/ane/">
@@ -52,7 +55,7 @@
 			<arg value="-target" />
 			<arg value="ane" />
 
-			<arg value="./build/de.patrickkulling.air.mobile.extensions.battery.ane" />
+			<arg value="${ane.file}" />
 
 			<arg value="./build/ane/extension.xml" />
 
@@ -68,10 +71,9 @@
 		</java>
 
 		<copy todir="../../extension/"
-		      file="./build/de.patrickkulling.air.mobile.extensions.battery.ane" />
+		      file="${ane.file}" />
 
-		<copy todir="../../extension/"
-		      file="./build/ane/${swc.name}" />
+		<copy todir="../../extension/" file="./build/ane/${swc.name}" />
 
 		<delete dir="build" />
 
