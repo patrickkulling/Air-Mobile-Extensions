@@ -38,12 +38,15 @@ package de.patrickkulling.air.mobile.extensions.notification
 			referenceCount++;
 		}
 
-		public function notify(title : String, message : String, notificationID : uint = 1, iconName : String = "icon") : void
+		public function notify(title : String, message : String, notificationID : uint = 1, notificationDefaults : NotificationDefaults = null, iconName : String = "icon") : void
 		{
 			if (context == null)
 				return;
 
-			context.call("notify", title, message, notificationID, iconName);
+			if(notificationDefaults == null)
+				notificationDefaults = new NotificationDefaults();
+
+			context.call("notify", title, message, notificationID, notificationDefaults.defaultValues, iconName);
 		}
 
 		public function dispose() : void

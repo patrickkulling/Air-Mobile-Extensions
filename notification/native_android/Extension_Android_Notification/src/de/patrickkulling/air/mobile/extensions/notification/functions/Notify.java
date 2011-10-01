@@ -26,6 +26,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 
+import com.adobe.fre.FREArray;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREInvalidObjectException;
@@ -42,7 +43,8 @@ public class Notify implements FREFunction
 		String title = getString(params[0]);
 		String message = getString(params[1]);
 		int notificationID = getInt(params[2]);
-		String iconName = getString(params[3]);
+		int notificationDefaults = getDefaults(params[3]);
+		String iconName = getString(params[4]);
 
 		if (title != null && message != null && iconName != null)
 		{
@@ -52,7 +54,7 @@ public class Notify implements FREFunction
 
 			int ressourceID = context.getResourceId("drawable." + iconName);
 
-			Notification notification = createNotification(title, message, ressourceID, context, notificationIntent);
+			Notification notification = createNotification(title, message, ressourceID, notificationDefaults, context, notificationIntent);
 
 			notificationManager.notify(notificationID, notification);
 		}
@@ -60,11 +62,55 @@ public class Notify implements FREFunction
 		return null;
 	}
 
-	protected Notification createNotification(CharSequence title, CharSequence message, int ressourceID, FREContext context, PendingIntent contentIntent)
+	private int getDefaults(FREObject defaultsObject)
+	{
+		int defaultsValues = Notification.DEFAULT_VIBRATE;
+
+		if (defaultsObject instanceof FREArray)
+		{
+			FREArray defaults = (FREArray) defaultsObject;
+
+			try
+			{
+				if(defaults.getLength() > 0)
+					defaultsValues = 0;
+				
+				for (int index = 0; index < defaults.getLength(); index++)
+				{
+					int defaultsValue = (defaults.getObjectAt(index)).getAsInt();
+
+					defaultsValues += defaultsValue;
+				}
+
+				return defaultsValues;
+
+			} catch (FREInvalidObjectException e)
+			{
+				e.printStackTrace();
+			} catch (FREWrongThreadException e)
+			{
+				e.printStackTrace();
+			} catch (IllegalStateException e)
+			{
+				e.printStackTrace();
+			} catch (IllegalArgumentException e)
+			{
+				e.printStackTrace();
+			} catch (FRETypeMismatchException e)
+			{
+				e.printStackTrace();
+			}
+		}
+
+		return defaultsValues;
+	}
+
+	protected Notification createNotification(CharSequence title, CharSequence message, int ressourceID, int notificationDefaults, FREContext context, PendingIntent contentIntent)
 	{
 		Notification notification = new Notification(ressourceID, message, System.currentTimeMillis());
-		notification.defaults |= Notification.DEFAULT_SOUND;
 		notification.setLatestEventInfo(context.getActivity(), title, message, contentIntent);
+
+		notification.defaults = notificationDefaults;
 
 		return notification;
 	}
