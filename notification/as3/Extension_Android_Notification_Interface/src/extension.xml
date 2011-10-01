@@ -1,0 +1,13 @@
+<extension xmlns="http://ns.adobe.com/air/extension/2.5">
+  <id>de.patrickkulling.air.mobile.extensions.notification</id>
+  <versionNumber>1</versionNumber>
+  <platforms>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>notification.jar</nativeLibrary>
+        <initializer>de.patrickkulling.air.mobile.extensions.notification.NotificationExtension</initializer>
+        <finalizer>de.patrickkulling.air.mobile.extensions.notification.NotificationExtension</finalizer>
+      </applicationDeployment>
+    </platform>
+  </platforms>
+</extension>
