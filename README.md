@@ -13,6 +13,9 @@ These libraries provides different AIR 3 Native Extension adapters for the Andro
 - Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
 - AIR 3.0 SDK RC1
 
+
+[Powerflasher GmbH](http://www.powerflasher.com/).
+
 Usage
 -----
 
