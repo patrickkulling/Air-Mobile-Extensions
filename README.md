@@ -14,7 +14,9 @@ These libraries provides different AIR 3 Native Extension adapters for the Andro
 - AIR 3.0 SDK RC1
 
 
-[Powerflasher GmbH](http://www.powerflasher.com/).
+
+
+[Powerflasher GmbH](http://www.powerflasher.com/)
 
 Usage
 -----
