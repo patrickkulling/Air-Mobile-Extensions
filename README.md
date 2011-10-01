@@ -67,23 +67,27 @@ E.g. via ANT
 
 Change log
 ----------
+**v 0.9**
+
+* **[Added]** Notification Support (Android)
+
 **v 0.8**
 
-* **[Added]** Toast Messages
-* **[Added]** Gravity Sensor
+* **[Added]** Toast Messages (Android)
+* **[Added]** Gravity Sensor (Android)
 
 **v 0.7**
 
-* **[Added]** Pressure/Barometer Sensor
-* **[Added]** Magnetometer Sensor
+* **[Added]** Pressure/Barometer Sensor (Android)
+* **[Added]** Magnetometer Sensor (Android)
 
 **v 0.6**
 
-* **[Added]** Battery status
+* **[Added]** Battery status (Android)
 
 **v 0.5**
 
-* **[Added]** Gyroscope Sensor
+* **[Added]** Gyroscope Sensor (Android)
 * **[Added]** cancel() method for the Vibrator class
 
 **v 0.4**
@@ -92,7 +96,7 @@ Change log
 
 **v 0.3**
 
-* **[Modified]** Project structure
+* **[Modified]** Project structure (Android)
 
 **v 0.2**
 
@@ -101,15 +105,15 @@ Change log
 
 **v 0.1**
 
-* **[Added]** Ambient Light Sensor
-* **[Added]** Orientation Sensor
-* **[Added]** Proximity Sensor
-* **[Added]** Vibrator Service 
+* **[Added]** Ambient Light Sensor (Android)
+* **[Added]** Orientation Sensor (Android)
+* **[Added]** Proximity Sensor (Android)
+* **[Added]** Vibrator Service (Android)
 
 Roadmap
 -------
 - Add additional Documentation of each service
 
 - Add Unit Tests
-- Add more functionality to the Vibrator Service (cancel, repeat)
-- Add additional sensor support
+
+- Add equivalent iOS implementations
