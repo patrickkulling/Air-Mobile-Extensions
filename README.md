@@ -8,15 +8,34 @@ These libraries provides different AIR 3 Native Extension adapters for the Andro
 - Extending the AIR API with additional hardware features of Android device
 - Using services which can't be accessed via the AIR API itself
 
+
+Available Native Extensions
+-----
+
+**Sensors**
+
+* AmbientLight Sensor
+* Barometer Sensor
+* Gravity Sensor
+* Gyroscope Sensor
+* Magnetometer Sensor
+* Orientation Sensor
+* Proximity Sensor
+
+**OS Features**
+
+* Battery Status
+* Toast Messages
+* Vibrator Hardware
+* Notifications
+
 **Dependencies**
 
 - Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
 - AIR 3.0 SDK RC1
 
 
-
-
-[Powerflasher GmbH](http://www.powerflasher.com/)
+powered by [Powerflasher GmbH](http://www.powerflasher.com/)
 
 Usage
 -----
