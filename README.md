@@ -14,20 +14,20 @@ Available Native Extensions
 
 **Sensors**
 
-* AmbientLight Sensor
-* Barometer Sensor
-* Gravity Sensor
-* Gyroscope Sensor
-* Magnetometer Sensor
-* Orientation Sensor
-* Proximity Sensor
+* AmbientLight Sensor (Android)
+* Barometer Sensor (Android)
+* Gravity Sensor (Android)
+* Gyroscope Sensor (Android)
+* Magnetometer Sensor (Android)
+* Orientation Sensor (Android)
+* Proximity Sensor (Android)
 
 **OS Features**
 
-* Battery Status
-* Toast Messages
-* Vibrator Hardware
-* Notifications
+* Battery Status (Android)
+* Toast Messages (Android)
+* Vibrator Hardware (Android)
+* Notifications (Android)
 
 **Dependencies**
 
