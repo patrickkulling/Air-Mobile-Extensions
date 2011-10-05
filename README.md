@@ -1,7 +1,7 @@
 AIR Mobile Extensions
 ==================
 
-These libraries provides different AIR 3 Native Extension adapters for the Android platform.
+These libraries provides different AIR 3 Native Extension adapters for the Android platform. _powered by_ [Powerflasher GmbH](http://www.powerflasher.com/)
 
 **Use cases:**
 
@@ -33,9 +33,6 @@ Available Native Extensions
 
 - Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
 - AIR 3.0 SDK
-
-
-powered by [Powerflasher GmbH](http://www.powerflasher.com/)
 
 Usage
 -----
