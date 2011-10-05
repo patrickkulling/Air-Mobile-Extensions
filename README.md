@@ -32,7 +32,7 @@ Available Native Extensions
 **Dependencies**
 
 - Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
-- AIR 3.0 SDK RC1
+- AIR 3.0 SDK
 
 
 powered by [Powerflasher GmbH](http://www.powerflasher.com/)
