@@ -1,7 +1,8 @@
 AIR Mobile Extensions
 ==================
 
-These libraries provides different AIR 3 Native Extension adapters for the Android platform. _powered by_ [Powerflasher GmbH](http://www.powerflasher.com/)
+These libraries provides different AIR 3 Native Extension adapters for the Android platform. 
+_powered by_ [Powerflasher GmbH](http://www.powerflasher.com/)
 
 **Use cases:**
 
