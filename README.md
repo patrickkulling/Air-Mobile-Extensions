@@ -27,12 +27,13 @@ Available Native Extensions
 
 * Battery Status (Android)
 * Toast Messages (Android)
-* Vibrator Hardware (Android)
+* Vibrator Hardware (Android / iOS)
 * Notifications (Android)
 
 **Dependencies**
 
-- Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
+- compiled against Android 2.2 (API Level 8), some need Android 2.3.3 (API Level 9)
+- compiled against iOS 4.2 SDK
 - AIR 3.0 SDK
 
 Usage
@@ -89,6 +90,10 @@ E.g. via ANT
 
 Change log
 ----------
+**v 0.9**
+
+* **[Added]** Vibrator Service (iOS)
+
 **v 0.9**
 
 * **[Added]** Notification Support (Android)
