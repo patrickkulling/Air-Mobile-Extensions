@@ -90,7 +90,7 @@ E.g. via ANT
 
 Change log
 ----------
-**v 0.9**
+**v 1.0**
 
 * **[Added]** Vibrator Service (iOS)
 
