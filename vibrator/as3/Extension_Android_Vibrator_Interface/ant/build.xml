@@ -5,28 +5,33 @@
          default="00. [build extension]">
 
 	<property name="native.name" value="vibrator" />
-		<property name="swc.name" value="android_${native.name}_extension.swc" />
-		<property name="ane.file"
-		          value="./build/de.patrickkulling.air.mobile.extensions.${native.name}.ane" />
 
-		<property name="native.dir"
-		          value="../../native_android/Extension_Android_Vibrator" />
+	<property name="swc.name" value="android_${native.name}_extension.swc" />
+
+	<property name="ane.file"
+	          value="./build/de.patrickkulling.air.mobile.extensions.${native.name}.ane" />
+
+	<property name="native.android.dir"
+	          value="../../native_android/Extension_Android_Vibrator" />
+
+	<property name="native.ios.dir"
+	          value="../../native_ios/Extension_iOS_Vibrator" />
+
+	<property name="target.android"
+	          value="Android-ARM" />
 	
+	<property name="target.ios"
+	          value="iPhone-ARM" />
+
 	<fdt.loadProjectProperties projectname="Extension_Android_Vibrator_Interface" />
 
 
 	<target name="00. [build extension]">
 
 		<delete dir="build" />
-		
-		<mkdir dir="build/ane/Android-ARM/res" />
 
-		<copy todir="build/ane/Android-ARM/res">
-			<fileset dir="${native.dir}/res" />
-		</copy>
-
-		<jar destfile="build/ane/Android-ARM/${native.name}.jar"
-		     basedir="${native.dir}/bin" />
+		<mkdir dir="build/ane/${target.android}/res" />
+		<mkdir dir="build/ane/${target.ios}" />
 
 		<copy todir="build/ane/">
 			<fileset file="./src/extension.xml" />
@@ -38,7 +43,8 @@
 
 		<unzip src="./build/ane/${swc.name}" dest="./build/ane/" />
 
-		<move file="./build/ane/library.swf" todir="./build/ane/Android-ARM/" />
+		<antcall target="01. [copy android ressources]" />
+		<antcall target="02. [copy ios ressources]" />
 
 		<java jar="${FDTProjectSdkPath}/lib/adt.jar" fork="true">
 			<arg value="-package" />
@@ -64,19 +70,40 @@
 			<arg value="./build/ane/${swc.name}" />
 
 			<arg value="-platform" />
-			<arg value="Android-ARM" />
+			<arg value="${target.ios}" />
 
 			<arg value="-C" />
-			<arg value="./build/ane/Android-ARM" />
+			<arg value="./build/ane/${target.ios}" />
+			<arg value="." />
+
+			<arg value="-platform" />
+			<arg value="${target.android}" />
+
+			<arg value="-C" />
+			<arg value="./build/ane/${target.android}" />
 			<arg value="." />
 		</java>
 
-		<copy todir="../../extension/"
-		      file="${ane.file}" />
+		<copy todir="../../extension/" file="${ane.file}" />
 
 		<copy todir="../../extension/" file="./build/ane/${swc.name}" />
 
 		<delete dir="build" />
+	</target>
+
+	<target name="01. [copy android ressources]">
+
+		<jar destfile="build/ane/${target.android}/${native.name}.jar"
+		     basedir="${native.android.dir}/bin" />
+
+		<copy file="./build/ane/library.swf" todir="./build/ane/${target.android}/" />
+	</target>
+
+	<target name="02. [copy ios ressources]">
+		<copy file="./build/ane/library.swf" todir="./build/ane/${target.ios}/" />
+
+		<copy file="${native.ios.dir}/vibrator.a"
+		      todir="./build/ane/${target.ios}/" />
 	</target>
 
 </project>

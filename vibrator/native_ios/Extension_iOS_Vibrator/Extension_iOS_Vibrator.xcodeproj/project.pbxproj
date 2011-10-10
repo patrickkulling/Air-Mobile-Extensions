@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD0AC396144364D700A3B337 /* Vibrate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0AC394144364D700A3B337 /* Vibrate.h */; };
+		CD0AC397144364D700A3B337 /* Vibrate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0AC395144364D700A3B337 /* Vibrate.m */; };
+		CD0AC3A214436A9200A3B337 /* IsSupported.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0AC3A014436A9200A3B337 /* IsSupported.h */; };
+		CD0AC3A314436A9200A3B337 /* IsSupported.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0AC3A114436A9200A3B337 /* IsSupported.m */; };
+		CD0AC3A914436B0A00A3B337 /* Initialize.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0AC3A714436B0A00A3B337 /* Initialize.h */; };
+		CD0AC3AA14436B0A00A3B337 /* Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0AC3A814436B0A00A3B337 /* Initialize.m */; };
+		CD0AC3AE14436BDD00A3B337 /* Cancel.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0AC3AC14436BDD00A3B337 /* Cancel.h */; };
+		CD0AC3AF14436BDD00A3B337 /* Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0AC3AD14436BDD00A3B337 /* Cancel.m */; };
+		CD19196C14435D2600887A93 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD19196B14435D2600887A93 /* Foundation.framework */; };
+		CD19197214435D2600887A93 /* Extension_iOS_Vibrator.m in Sources */ = {isa = PBXBuildFile; fileRef = CD19197114435D2600887A93 /* Extension_iOS_Vibrator.m */; };
+		CD19197914435D7500887A93 /* FlashRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = CD19197814435D7500887A93 /* FlashRuntimeExtensions.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD0AC394144364D700A3B337 /* Vibrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vibrate.h; sourceTree = "<group>"; };
+		CD0AC395144364D700A3B337 /* Vibrate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vibrate.m; sourceTree = "<group>"; };
+		CD0AC3A014436A9200A3B337 /* IsSupported.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsSupported.h; sourceTree = "<group>"; };
+		CD0AC3A114436A9200A3B337 /* IsSupported.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsSupported.m; sourceTree = "<group>"; };
+		CD0AC3A714436B0A00A3B337 /* Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Initialize.h; sourceTree = "<group>"; };
+		CD0AC3A814436B0A00A3B337 /* Initialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Initialize.m; sourceTree = "<group>"; };
+		CD0AC3AC14436BDD00A3B337 /* Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cancel.h; sourceTree = "<group>"; };
+		CD0AC3AD14436BDD00A3B337 /* Cancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cancel.m; sourceTree = "<group>"; };
+		CD19196814435D2600887A93 /* vibrator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = vibrator.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD19196B14435D2600887A93 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD19196F14435D2600887A93 /* Extension_iOS_Vibrator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Extension_iOS_Vibrator-Prefix.pch"; sourceTree = "<group>"; };
+		CD19197014435D2600887A93 /* Extension_iOS_Vibrator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension_iOS_Vibrator.h; sourceTree = "<group>"; };
+		CD19197114435D2600887A93 /* Extension_iOS_Vibrator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Extension_iOS_Vibrator.m; sourceTree = "<group>"; };
+		CD19197814435D7500887A93 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashRuntimeExtensions.h; path = ../../../../../../../tools/sdks/flex/flex_sdk_4.5.1.21328_air3.0/include/FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD19196514435D2600887A93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD19196C14435D2600887A93 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD0AC39F144369A600A3B337 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				CD0AC394144364D700A3B337 /* Vibrate.h */,
+				CD0AC395144364D700A3B337 /* Vibrate.m */,
+				CD0AC3A014436A9200A3B337 /* IsSupported.h */,
+				CD0AC3A114436A9200A3B337 /* IsSupported.m */,
+				CD0AC3A714436B0A00A3B337 /* Initialize.h */,
+				CD0AC3A814436B0A00A3B337 /* Initialize.m */,
+				CD0AC3AC14436BDD00A3B337 /* Cancel.h */,
+				CD0AC3AD14436BDD00A3B337 /* Cancel.m */,
+			);
+			name = Functions;
+			sourceTree = "<group>";
+		};
+		CD19195D14435D2500887A93 = {
+			isa = PBXGroup;
+			children = (
+				CD19196D14435D2600887A93 /* Extension_iOS_Vibrator */,
+				CD19196A14435D2600887A93 /* Frameworks */,
+				CD19196914435D2600887A93 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD19196914435D2600887A93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD19196814435D2600887A93 /* vibrator.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD19196A14435D2600887A93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD19196B14435D2600887A93 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD19196D14435D2600887A93 /* Extension_iOS_Vibrator */ = {
+			isa = PBXGroup;
+			children = (
+				CD19197014435D2600887A93 /* Extension_iOS_Vibrator.h */,
+				CD19197114435D2600887A93 /* Extension_iOS_Vibrator.m */,
+				CD19196E14435D2600887A93 /* Supporting Files */,
+				CD0AC39F144369A600A3B337 /* Functions */,
+			);
+			path = Extension_iOS_Vibrator;
+			sourceTree = "<group>";
+		};
+		CD19196E14435D2600887A93 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD19197814435D7500887A93 /* FlashRuntimeExtensions.h */,
+				CD19196F14435D2600887A93 /* Extension_iOS_Vibrator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CD19196614435D2600887A93 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD19197914435D7500887A93 /* FlashRuntimeExtensions.h in Headers */,
+				CD0AC396144364D700A3B337 /* Vibrate.h in Headers */,
+				CD0AC3A214436A9200A3B337 /* IsSupported.h in Headers */,
+				CD0AC3A914436B0A00A3B337 /* Initialize.h in Headers */,
+				CD0AC3AE14436BDD00A3B337 /* Cancel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CD19196714435D2600887A93 /* vibrator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD19197514435D2600887A93 /* Build configuration list for PBXNativeTarget "vibrator" */;
+			buildPhases = (
+				CD19196414435D2600887A93 /* Sources */,
+				CD19196514435D2600887A93 /* Frameworks */,
+				CD19196614435D2600887A93 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vibrator;
+			productName = Extension_iOS_Vibrator;
+			productReference = CD19196814435D2600887A93 /* vibrator.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD19195F14435D2500887A93 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = CD19196214435D2500887A93 /* Build configuration list for PBXProject "Extension_iOS_Vibrator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CD19195D14435D2500887A93;
+			productRefGroup = CD19196914435D2600887A93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD19196714435D2600887A93 /* vibrator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD19196414435D2600887A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD19197214435D2600887A93 /* Extension_iOS_Vibrator.m in Sources */,
+				CD0AC397144364D700A3B337 /* Vibrate.m in Sources */,
+				CD0AC3A314436A9200A3B337 /* IsSupported.m in Sources */,
+				CD0AC3AA14436B0A00A3B337 /* Initialize.m in Sources */,
+				CD0AC3AF14436BDD00A3B337 /* Cancel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CD19197314435D2600887A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CD19197414435D2600887A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD19197614435D2600887A93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Extension_iOS_Vibrator.dst;
+				EXECUTABLE_PREFIX = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Extension_iOS_Vibrator/Extension_iOS_Vibrator-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/Extension_iOS_Vibrator-dfihgnybceyujmarwgmokgnvatte/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CD19197714435D2600887A93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Extension_iOS_Vibrator.dst;
+				EXECUTABLE_PREFIX = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Extension_iOS_Vibrator/Extension_iOS_Vibrator-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/Extension_iOS_Vibrator-dfihgnybceyujmarwgmokgnvatte/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD19196214435D2500887A93 /* Build configuration list for PBXProject "Extension_iOS_Vibrator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD19197314435D2600887A93 /* Debug */,
+				CD19197414435D2600887A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD19197514435D2600887A93 /* Build configuration list for PBXNativeTarget "vibrator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD19197614435D2600887A93 /* Debug */,
+				CD19197714435D2600887A93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD19195F14435D2500887A93 /* Project object */;
+}

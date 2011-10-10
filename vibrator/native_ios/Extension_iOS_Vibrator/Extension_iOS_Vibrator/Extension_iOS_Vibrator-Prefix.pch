@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'Extension_iOS_Vibrator' target in the 'Extension_iOS_Vibrator' project
+//
+
+#ifdef __OBJC__
+    #import "FlashRuntimeExtensions.h"
+    #import <Foundation/Foundation.h>
+#endif
